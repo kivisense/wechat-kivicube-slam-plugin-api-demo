@@ -2,6 +2,8 @@
 
 ## 源码目录
 
+**声明：所有的示例代码仅供大家开发参考，若移植到自己的项目后有任何问题，请先自行检查和确认问题来源。确实为组件问题的，请创建Issues反馈。**
+
 ### 一、基础
 
 #### 1、[如何获取高级API](../../tree/master/pages/base/api/)
@@ -20,7 +22,7 @@
 
 #### 5、[gltf/glb模型](../../tree/master/pages/api/model/)
 
-#### 6、[组合容器](../../tree/master/pages/api/group/)
+#### 6、[组合](../../tree/master/pages/api/group/)
 
 #### 7、[将素材指定为遮罩](../../tree/master/pages/api/mask/)
 
@@ -52,7 +54,7 @@
 
 #### 5、[实现缓动动画](../../tree/master/pages/api/tween-animation/)
 
-## API应用
+## API应用说明
 
 ### Slam
 
@@ -102,7 +104,7 @@ kivicube-slam组件暂时仅支持其中的一环，即平面检测与追踪功�
     - 基类Light
     - AmbientLight
     - DirectionalLight
-4. 容器3D对象【Group3D】
+4. 组合3D对象【Group3D】
 5. 环境贴图对象【EnvMap】
 
 所有3D对象都继承自Base3D，Light也继承自Base3D。
@@ -117,8 +119,8 @@ kivicube-slam组件暂时仅支持其中的一环，即平面检测与追踪功�
 当我们有两个视频，需要他们一起受到手势操作，但又不想他们组成父子关系嵌套时，我们可以创建一个组合对象。让手势作用于组合对象，从而达到想要的效果。
 
 ```javascript
-const video3d1 = slam.createVideo(videoUrlOrPath);
-const video3d2 = slam.createAlphaVideo(videoUrlOrPath);
+const video3d1 = await slam.createVideo(videoUrlOrPath);
+const video3d2 = await slam.createAlphaVideo(videoUrlOrPath);
 const videoGroup = slam.createGroup();
 
 videoGroup.add(video3d1);
