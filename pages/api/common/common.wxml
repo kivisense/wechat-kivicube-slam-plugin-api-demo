@@ -1,0 +1,16 @@
+<kivicube-slam
+  class="slam"
+  license="{{license}}"
+  bindready="ready"
+  binderror="error"
+/>
+
+<view class="click">可点击3d内容，触发toast提示</view>
+
+<view class="operate">
+  <button bind:tap="hide">点击隐藏</button>
+  <button bind:tap="show">点击显示</button>
+  <button bind:tap="enableOnBeforeRender">开启onBeforeRender</button>
+  <button bind:tap="disableOnBeforeRender">关闭onBeforeRender</button>
+  <button bind:tap="lookAt">看向中心</button>
+</view>

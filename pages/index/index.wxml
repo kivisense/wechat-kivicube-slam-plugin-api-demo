@@ -1,0 +1,39 @@
+<view class="title">一、基础</view>
+<view class="second">
+  <navigator url="../base/api/api">1、如何获取高级API</navigator>
+  <navigator url="../base/sample/sample">2、高级API基本应用</navigator>
+</view>
+
+<view class="title">二、素材内容</view>
+<view class="second">
+  <navigator url="../api/common/common">1、3D对象共有API【基类】</navigator>
+  <navigator url="../api/image/image">2、图片</navigator>
+  <navigator url="../api/image-sprite/image-sprite">3、精灵图</navigator>
+  <navigator url="../api/video/video">4、视频/透明视频</navigator>
+  <navigator url="../api/model/model">5、gltf/glb模型</navigator>
+  <navigator url="../api/group/group">6、组合容器</navigator>
+  <navigator url="../api/mask/mask">7、将素材指定为遮罩</navigator>
+  <navigator url="../api/indicator/indicator">8、平面指示器</navigator>
+</view>
+
+<view class="title">三、其他内容</view>
+<view class="second">
+  <navigator url="../api/env-map/env-map">1、环境贴图</navigator>
+  <navigator url="../api/light/light">2、光照</navigator>
+</view>
+
+<view class="title">四、Slam功能</view>
+<view class="second">
+  <navigator url="../api/tracking/tracking">1、开启和关闭</navigator>
+  <navigator url="../api/stand-plane/stand-plane">2、平面摆放</navigator>
+  <navigator url="../api/is-gyroscope/is-gyroscope">3、降级判定</navigator>
+</view>
+
+<view class="title">五、其他</view>
+<view class="second">
+  <navigator url="../api/gesture/gesture">1、手势</navigator>
+  <navigator url="../api/photo/photo">2、拍照处理</navigator>
+  <navigator url="../api/penetrate-ui/penetrate-ui">3、穿透自定义UI点击到模型</navigator>
+  <navigator url="../api/simple-animation/simple-animation">4、简单的自定义动画</navigator>
+  <navigator url="../api/tween-animation/tween-animation">5、实现缓动动画</navigator>
+</view>

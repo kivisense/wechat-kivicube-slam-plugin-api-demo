@@ -1,0 +1,16 @@
+<kivicube-slam
+  class="slam"
+  license="{{license}}"
+  bindready="ready"
+  binderror="error"
+/>
+
+<view class="operate">
+  <picker wx:if="{{nameList.length}}" mode="selector" bindchange="nameChange" range-key="name" value="{{name}}" range="{{nameList}}">
+    当前选择：{{nameList[name].name}}
+  </picker>
+  <button bind:tap="play">播放动画</button>
+  <button bind:tap="pause">暂停动画</button>
+  <button bind:tap="stop">停止动画</button>
+  <button bind:tap="playback">重新播放</button>
+</view>

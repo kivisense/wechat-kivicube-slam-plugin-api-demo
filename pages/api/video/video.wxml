@@ -1,0 +1,13 @@
+<kivicube-slam
+  class="slam"
+  license="{{license}}"
+  bindready="ready"
+  binderror="error"
+/>
+
+<view class="operate">
+  <button bind:tap="showVideo">显示视频</button>
+  <button bind:tap="showAlphaVideo">显示透明视频</button>
+  <button bind:tap="play">播放</button>
+  <button bind:tap="pause">暂停</button>
+</view>
