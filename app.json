@@ -12,7 +12,7 @@
   "plugins": {
     "kivicube-slam": {
       "provider": "wx12ad8a61f049ea02",
-      "version": "dev-c4c924ad0db1dc6f311ef403587d3109"
+      "version": "1.0.3"
     }
   },
   "window": {
