@@ -7,12 +7,13 @@
     "pages/api/image/image",
     "pages/api/image-sprite/image-sprite",
     "pages/api/model/model",
-    "pages/api/video/video"
+    "pages/api/video/video",
+    "pages/api/indicator/indicator"
   ],
   "plugins": {
     "kivicube-slam": {
       "provider": "wx12ad8a61f049ea02",
-      "version": "1.0.3"
+      "version": "1.0.7"
     }
   },
   "window": {
