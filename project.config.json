@@ -42,7 +42,7 @@
     "minifyWXML": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.20.0",
+  "libVersion": "2.20.2",
   "appid": "wx12ad8a61f049ea02",
   "projectname": "wechat-kivicube-slam-plugin-api-demo",
   "debugOptions": {

@@ -1,0 +1,10 @@
+<kivicube-slam
+  class="slam"
+  license="{{license}}"
+  bindready="ready"
+  binderror="error"
+/>
+
+<picker mode="selector" bindchange="envMapChange" value="{{0}}" range="{{envMapNameList}}">
+  当前选择：{{envMapNameList[envMap]}}
+</picker>

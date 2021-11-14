@@ -3,6 +3,7 @@ export function errorHandler(errInfo) {
   if (typeof errInfo === "object") {
     if (errInfo instanceof Error) {
       message = errInfo.message;
+      console.warn(errInfo.stack);
     } else if (errInfo.errMsg) {
       message = errInfo.errMsg;
     } else {

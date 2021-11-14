@@ -130,6 +130,8 @@ slam.setGesture(videoGroup);
 slam.add(videoGroup);
 ```
 
+**重要：当你有多个内容时，建议都放入组合之中，再slam.add(group)即可。**
+
 ### 平面指示器
 
 如果希望知道slam引擎检测出来的平面位于什么位置，那可以将某个模型作为指示器加入组件。

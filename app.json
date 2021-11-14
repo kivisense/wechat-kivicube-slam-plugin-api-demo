@@ -8,12 +8,16 @@
     "pages/api/image-sprite/image-sprite",
     "pages/api/model/model",
     "pages/api/video/video",
-    "pages/api/indicator/indicator"
+    "pages/api/indicator/indicator",
+    "pages/api/group/group",
+    "pages/api/mask/mask",
+    "pages/api/env-map/env-map",
+    "pages/api/light/light"
   ],
   "plugins": {
     "kivicube-slam": {
       "provider": "wx12ad8a61f049ea02",
-      "version": "1.0.7"
+      "version": "1.0.9"
     }
   },
   "window": {

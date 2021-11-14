@@ -1,0 +1,15 @@
+.slam {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+picker {
+  position: absolute;
+  left: 0;
+  bottom: 10vh;
+  width: 100%;
+  z-index: 2;
+  text-align: center;
+  color: white;
+}
