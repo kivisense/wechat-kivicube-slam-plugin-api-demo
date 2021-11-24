@@ -3,6 +3,7 @@
     "pages/index/index",
     "pages/base/api/api",
     "pages/base/sample/sample",
+    "pages/base/scene/scene",
     "pages/api/common/common",
     "pages/api/image/image",
     "pages/api/image-sprite/image-sprite",
@@ -12,12 +13,13 @@
     "pages/api/group/group",
     "pages/api/mask/mask",
     "pages/api/env-map/env-map",
-    "pages/api/light/light"
+    "pages/api/light/light",
+    "pages/api/shadow/shadow"
   ],
   "plugins": {
     "kivicube-slam": {
       "provider": "wx12ad8a61f049ea02",
-      "version": "1.0.9"
+      "version": "1.0.10"
     }
   },
   "window": {

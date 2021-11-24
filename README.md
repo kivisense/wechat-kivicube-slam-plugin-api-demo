@@ -10,6 +10,8 @@
 
 #### 2、[高级API基础应用](../../tree/master/pages/base/sample/)
 
+#### 3、[场景展示页面的简单模拟](../../tree/master/pages/base/scene/)
+
 ### 二、素材内容
 
 #### 1、[3D对象共有API【基类】](../../tree/master/pages/api/common/)
@@ -32,15 +34,17 @@
 
 #### 1、[环境贴图](../../tree/master/pages/api/env-map/)
 
-#### 1、[光照](../../tree/master/pages/api/light/)
+#### 2、[光照](../../tree/master/pages/api/light/)
+
+#### 3、[阴影](../../tree/master/pages/api/shadow/)
 
 ### 四、Slam功能
 
 #### 1、[开启和关闭](../../tree/master/pages/api/tracking/)
 
-#### 1、[3D内容管理](../../tree/master/pages/api/manage/)
+#### 2、[3D内容管理](../../tree/master/pages/api/manage/)
 
-#### 2、[降级判定](../../tree/master/pages/api/is-gyroscope/)
+#### 3、[降级判定](../../tree/master/pages/api/is-gyroscope/)
 
 ### 五、其他
 

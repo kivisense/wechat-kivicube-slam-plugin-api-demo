@@ -1,0 +1,16 @@
+.slam {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+.guide {
+  position: absolute;
+  left: 50%;
+  bottom: 30vh;
+  transform: translate(-50%);
+  z-index: 2;
+
+  color: white;
+  pointer-events: none;
+}
