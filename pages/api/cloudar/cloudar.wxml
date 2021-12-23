@@ -3,13 +3,9 @@
   license="{{license}}"
   bindready="ready"
   binderror="error"
+  bind:tap="tap"
 />
 <view class="image-guide" wx:if="{{showGuide}}">
   <image mode="widthFix" src="./image.jpg"></image>
   <view>{{guideTip}}</view>
-</view>
-
-<view class="guide">
-  <view class="button" bindtap="handleStart">开启识别</view>
-  <view class="button" bindtap="handleStop">关闭识别</view>
 </view>
