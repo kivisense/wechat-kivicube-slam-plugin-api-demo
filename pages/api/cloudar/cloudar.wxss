@@ -1,0 +1,33 @@
+.slam {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+.image-guide{
+  position: absolute;
+  z-index: 2;
+  width: 700rpx;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+}
+.image-guide image{
+  display: block;
+  margin-bottom: 15px;
+  opacity: 0.3;
+}
+.guide {
+  position: absolute;
+  left: 50%;
+  bottom: 20vh;
+  transform: translate(-50%);
+  z-index: 2;
+}
+.button{
+  margin-bottom: 15px;
+  padding: 6px 15px;
+  border-radius: 3px;
+  background-color: #fff;
+}

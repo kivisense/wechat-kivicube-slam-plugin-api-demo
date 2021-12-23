@@ -22,6 +22,7 @@
   <navigator url="../api/env-map/env-map">1、环境贴图</navigator>
   <navigator url="../api/light/light">2、光照</navigator>
   <navigator url="../api/shadow/shadow">3、阴影</navigator>
+  <navigator url="../api/cloudar/cloudar">4、云识别</navigator>
 </view>
 
 <view class="title">四、Slam功能</view>
