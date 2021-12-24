@@ -27,23 +27,23 @@ Page({
       // 暂时隐藏，云识别成功后再出现。
       rabbitModel.visible = false;
       slam.add(rabbitModel, 0.8);
-      console.log('slam', slam.start)
+
       await slam.start();
 
       this.rabbitModel = rabbitModel;
       this.slam = slam;
 
       wx.hideLoading();
-      this.setData({ showGuide: true })
+      this.setData({ showGuide: true });
 
-      const {windowHeight, windowWidth} = wx.getWindowInfo()
+      const {windowHeight, windowWidth} = wx.getWindowInfo();
 
       // 开启一个计时器，超过10秒未识别到，关闭云识别，直接显示模型
       const timer = setTimeout(() => {
-        this.slam.stopCloudar()
-        this.setData({ showGuide: false })
-        this.setModel(windowWidth / 2, windowHeight / 2)
-      }, 10000)
+        this.slam.stopCloudar();
+        this.setData({ showGuide: false });
+        this.setModel(windowWidth / 2, windowHeight / 2);
+      }, 10000);
 
       /**
        * 开始去云识别图片。
@@ -52,15 +52,15 @@ Page({
        * @returns {Promise<String|Undefined>} 场景id。如果识别过程中调用了stopCloudar，则会返回undefined值。
        */
       const sceneId = await this.slam.startCloudar("b46rfc").catch(err => {
-        clearTimeout(timer)
+        clearTimeout(timer);
         errorHandler(err);
       });
 
       // 识别成功，显示模型
       if (sceneId) {
-        clearTimeout(timer)
-        this.setData({ showGuide: false })
-        this.setModel(windowWidth / 2, windowHeight / 2)
+        clearTimeout(timer);
+        this.setData({ showGuide: false });
+        this.setModel(windowWidth / 2, windowHeight / 2);
       }
     } catch (e) {
       wx.hideLoading();
