@@ -4,7 +4,7 @@ Page({
   data: {
     license: getApp().globalData.license,
     showGuide: false,
-    guideTip: "请对准识别图"
+    guideTip: "请对准识别图",
   },
 
   onLoad() {
@@ -13,7 +13,7 @@ Page({
     this.downloadAsset = Promise.all([
       requestFile(
         "https://kivicube-resource.kivisense.com/wechat-kivicube-slam-plugin-api-demo/rabbit.glb"
-      )
+      ),
     ]);
   },
 
@@ -36,7 +36,7 @@ Page({
       wx.hideLoading();
       this.setData({ showGuide: true });
 
-      const {windowHeight, windowWidth} = wx.getWindowInfo();
+      const { windowHeight, windowWidth } = wx.getWindowInfo();
 
       // 开启一个计时器，超过10秒未识别到，关闭云识别，直接显示模型
       const timer = setTimeout(() => {
@@ -47,11 +47,11 @@ Page({
 
       /**
        * 开始去云识别图片。
-       * @param {String} collectionId - 合辑id。
-       * @param {Array} sceneList - 希望识别到的场景id列表。如果识别到的场景不在此列表中，则会忽略，继续识别。
+       * @param {String} collectionId - 合辑id。获取方式，参考：https://mp.weixin.qq.com/wxopen/plugindevdoc?appid=wx3bbab3920eabccb2&token=&lang=zh_CN#-id-
+       * @param {Array} [sceneList=[]] - 希望识别到的场景id列表。如果识别到的场景不在此列表中，则会忽略，继续识别。如果为空，或空数组，则代表识别合辑下的所有场景。
        * @returns {Promise<String|Undefined>} 场景id。如果识别过程中调用了stopCloudar，则会返回undefined值。
        */
-      const sceneId = await this.slam.startCloudar("b46rfc").catch(err => {
+      const sceneId = await this.slam.startCloudar("b46rfc").catch((err) => {
         clearTimeout(timer);
         errorHandler(err);
       });
@@ -84,23 +84,17 @@ Page({
       // 注意：需要传入在kivicube-slam组件上的坐标点，而不是页面上的坐标点。
       const x = pageX - offsetLeft;
       const y = pageY - offsetTop;
-      this.setModel(x, y)
+      this.setModel(x, y);
     }
   },
 
   setModel(x, y) {
-    const success = this.slam.standOnThePlane(
-      this.rabbitModel,
-      x,
-      y,
-      true
-    );
+    const success = this.slam.standOnThePlane(this.rabbitModel, x, y, true);
     if (success) {
       this.rabbitModel.visible = true;
       this.rabbitModel.playAnimation({ loop: true });
     } else {
       wx.showToast({ title: "放置模型失败，请对准平面", icon: "none" });
     }
-  }
-
+  },
 });
