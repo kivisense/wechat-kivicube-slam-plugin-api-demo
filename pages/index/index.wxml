@@ -22,7 +22,6 @@
   <navigator url="../api/env-map/env-map">1、环境贴图</navigator>
   <navigator url="../api/light/light">2、光照</navigator>
   <navigator url="../api/shadow/shadow">3、阴影</navigator>
-  <navigator url="../api/cloudar/cloudar">4、云识别</navigator>
 </view>
 
 <view class="title">四、Slam功能</view>
@@ -39,4 +38,5 @@
   <navigator url="../api/penetrate-ui/penetrate-ui">3、穿透自定义UI点击到模型</navigator>
   <navigator url="../api/simple-animation/simple-animation">4、简单的自定义动画</navigator>
   <navigator url="../api/tween-animation/tween-animation">5、实现缓动动画</navigator>
+  <navigator url="../api/cloudar/cloudar">6、云识别</navigator>
 </view>
