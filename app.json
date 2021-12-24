@@ -20,7 +20,7 @@
   "plugins": {
     "kivicube-slam": {
       "provider": "wx12ad8a61f049ea02",
-      "version": "dev-5475d9bf1505f4f6660067263bab214f"
+      "version": "dev-746e58213859b8bedbd3312c4955c6c4"
     }
   },
   "window": {

@@ -27,33 +27,41 @@ Page({
       // 暂时隐藏，云识别成功后再出现。
       rabbitModel.visible = false;
       slam.add(rabbitModel, 0.8);
-
+      console.log('slam', slam.start)
       await slam.start();
 
       this.rabbitModel = rabbitModel;
       this.slam = slam;
 
       wx.hideLoading();
-      this.setData({
-        showGuide: true
-      })
+      this.setData({ showGuide: true })
+
       const {windowHeight, windowWidth} = wx.getWindowInfo()
 
-      // 传入合辑ID进行云识别
-      this.slam.startCloudAr("b46rfc").then(sceneId => {
-        // 识别成功，显示模型
-        if(sceneId) {
-          this.setData({ showGuide: false })
-          this.setModel(windowWidth / 2, windowHeight / 2)
-        }
-      });
-
-      // 超过10秒未识别到，关闭云识别，直接显示模型
-      setTimeout(() => {
-        this.slam.stopCloudAr()
+      // 开启一个计时器，超过10秒未识别到，关闭云识别，直接显示模型
+      const timer = setTimeout(() => {
+        this.slam.stopCloudar()
         this.setData({ showGuide: false })
         this.setModel(windowWidth / 2, windowHeight / 2)
       }, 10000)
+
+      /**
+       * 开始去云识别图片。
+       * @param {String} collectionId - 合辑id。
+       * @param {Array} sceneList - 希望识别到的场景id列表。如果识别到的场景不在此列表中，则会忽略，继续识别。
+       * @returns {Promise<String|Undefined>} 场景id。如果识别过程中调用了stopCloudar，则会返回undefined值。
+       */
+      const sceneId = await this.slam.startCloudar("b46rfc").catch(err => {
+        clearTimeout(timer)
+        errorHandler(err);
+      });
+
+      // 识别成功，显示模型
+      if (sceneId) {
+        clearTimeout(timer)
+        this.setData({ showGuide: false })
+        this.setModel(windowWidth / 2, windowHeight / 2)
+      }
     } catch (e) {
       wx.hideLoading();
       errorHandler(e);
