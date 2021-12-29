@@ -14,7 +14,7 @@
 
 ### 二、素材内容
 
-#### 1、[3D对象共有API【基类】](../../tree/master/pages/api/common/)
+#### 1、[3D对象共有API【基类】](../../tree/master/pages/api/common/) - 包含子对象处理、点击事件、渲染钩子函数、显示隐藏等的示例
 
 #### 2、[图片](../../tree/master/pages/api/image/)
 
