@@ -16,12 +16,13 @@
     "pages/api/light/light",
     "pages/api/shadow/shadow",
     "pages/api/photo/photo",
-    "pages/api/cloudar/cloudar"
+    "pages/api/cloudar/cloudar",
+    "pages/api/camera/camera"
   ],
   "plugins": {
     "kivicube-slam": {
       "provider": "wx12ad8a61f049ea02",
-      "version": "1.2.0"
+      "version": "1.2.1"
     }
   },
   "window": {

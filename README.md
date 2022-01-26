@@ -38,6 +38,8 @@
 
 #### 3、[阴影](../../tree/master/pages/api/shadow/)
 
+#### 4、[Camera](../../tree/master/pages/api/camera/) - 获取位置、3D素材放置屏幕上
+
 ### 四、Slam功能
 
 #### 1、[开启和关闭](../../tree/master/pages/api/tracking/)
