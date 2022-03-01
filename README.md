@@ -14,7 +14,7 @@
 
 ### 二、素材内容
 
-#### 1、[3D对象共有API【基类】](../../tree/master/pages/api/common/)
+#### 1、[3D对象共有API【基类】](../../tree/master/pages/api/common/) - 包含子对象处理、点击事件、渲染钩子函数、显示隐藏等的示例
 
 #### 2、[图片](../../tree/master/pages/api/image/)
 
@@ -39,6 +39,8 @@
 #### 2、[光照](../../tree/master/pages/api/light/)
 
 #### 3、[阴影](../../tree/master/pages/api/shadow/)
+
+#### 4、[Camera](../../tree/master/pages/api/camera/) - 获取位置、3D素材放置屏幕上
 
 ### 四、Slam功能
 

@@ -7,7 +7,7 @@
 
 <view class="title">二、素材内容</view>
 <view class="second">
-  <navigator url="../api/common/common">1、3D对象共有API【基类】</navigator>
+  <navigator url="../api/common/common">1、3D对象共有API【基类】 - 包含子对象处理、点击事件、渲染钩子函数、显示隐藏等的示例</navigator>
   <navigator url="../api/image/image">2、图片</navigator>
   <navigator url="../api/image-sprite/image-sprite">3、精灵图</navigator>
   <navigator url="../api/video/video">4、视频/透明视频</navigator>
@@ -23,6 +23,7 @@
   <navigator url="../api/env-map/env-map">1、环境贴图</navigator>
   <navigator url="../api/light/light">2、光照</navigator>
   <navigator url="../api/shadow/shadow">3、阴影</navigator>
+  <navigator url="../api/camera/camera">4、Camera - 获取位置、3D素材放置屏幕上</navigator>
 </view>
 
 <view class="title">四、Slam功能</view>

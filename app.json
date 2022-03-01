@@ -15,7 +15,9 @@
     "pages/api/env-map/env-map",
     "pages/api/light/light",
     "pages/api/shadow/shadow",
+    "pages/api/photo/photo",
     "pages/api/cloudar/cloudar",
+    "pages/api/camera/camera",
     "pages/api/visualPlane/visualPlane",
     "pages/api/multi-plane/multi-plane"
   ],

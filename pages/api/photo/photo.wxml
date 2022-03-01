@@ -1,0 +1,8 @@
+<kivicube-slam
+  class="slam"
+  license="{{license}}"
+  bindready="ready"
+  binderror="error"
+/>
+
+<button bind:tap="takePhoto">点击拍照</button>
