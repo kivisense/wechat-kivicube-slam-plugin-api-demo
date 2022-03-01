@@ -19,7 +19,8 @@
     "pages/api/cloudar/cloudar",
     "pages/api/camera/camera",
     "pages/api/visualPlane/visualPlane",
-    "pages/api/multi-plane/multi-plane"
+    "pages/api/multi-plane/multi-plane",
+    "pages/api/vio-scene/vio-scene"
   ],
   "plugins": {
     "kivicube-slam": {

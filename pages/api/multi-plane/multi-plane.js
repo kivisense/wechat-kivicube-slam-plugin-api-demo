@@ -69,15 +69,11 @@ Page({
   // 平面新增
   addAnchors({ detail: anchors }) {
     wx.showToast({ title: `新增平面：${anchors.length}个`, icon: "none" });
-    
+
     const anchor = anchors[0];
-    console.warn(
-      "平面信息：",
-      anchor.id, // 唯一标识
-    );
+    console.warn("平面id：", anchor.id);
 
     const {windowWidth, windowHeight} = this;
-
     // 在指定id的平面上放置模型
     const success = this.slam.standOnThePlaneById(
       this.rabbitModel,
@@ -87,11 +83,9 @@ Page({
     );
     
     console.warn("standOnThePlaneById success", success);
-
     if(success) {
       console.warn(`模型已放置在id为${anchor.id}的平面上`);
     }
-    
   },
 
   // 平面更新
@@ -109,6 +103,5 @@ Page({
   onUnload() {
     this.slam = null;
     this.rabbitModel = null;
-  }
-
+  },
 });

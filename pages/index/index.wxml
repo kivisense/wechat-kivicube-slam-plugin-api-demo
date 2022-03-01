@@ -29,6 +29,7 @@
 <view class="title">四、Slam功能</view>
 <view class="second">
   <navigator url="../api/multi-plane/multi-plane">1、多平面检测与事件监听 (v2版本) </navigator>
+  <navigator url="../api/vio-scene/vio-scene">2、场景漫游 (v2版本) </navigator>
 </view>
 
 <view class="title">五、其他</view>

@@ -54,8 +54,9 @@ Page({
       errorHandler(detail);
     }
   },
+  
   onUnload() {
     clearTimeout(this._timer1);
     clearTimeout(this._timer2);
-  }
+  },
 });
