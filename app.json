@@ -15,12 +15,14 @@
     "pages/api/env-map/env-map",
     "pages/api/light/light",
     "pages/api/shadow/shadow",
-    "pages/api/cloudar/cloudar"
+    "pages/api/cloudar/cloudar",
+    "pages/api/visualPlane/visualPlane",
+    "pages/api/multi-plane/multi-plane"
   ],
   "plugins": {
     "kivicube-slam": {
       "provider": "wx12ad8a61f049ea02",
-      "version": "dev-bd33634cd6460a1463ce266c1bb90a3b"
+      "version": "1.3.0"
     }
   },
   "window": {

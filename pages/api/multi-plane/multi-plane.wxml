@@ -1,0 +1,12 @@
+<kivicube-slam
+  class="slam"
+  license="{{license}}"
+  version="{{version}}"
+  defaultPlaneVisible="{{defaultPlaneVisible}}"
+  planeTracking="{{planeTracking}}"
+  bindready="ready"
+  binderror="error"
+  bind:addAnchors="addAnchors"
+  bind:updateAnchors="updateAnchors"
+  bind:removeAnchors="removeAnchors"
+/>

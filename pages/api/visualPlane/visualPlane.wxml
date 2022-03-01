@@ -2,6 +2,7 @@
   class="slam"
   license="{{license}}"
   version="{{version}}"
+  defaultPlaneVisible="{{defaultPlaneVisible}}"
   bindready="ready"
   binderror="error"
 />
