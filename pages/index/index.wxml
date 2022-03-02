@@ -15,7 +15,7 @@
   <navigator url="../api/group/group">6、组合容器</navigator>
   <navigator url="../api/mask/mask">7、将素材指定为遮罩</navigator>
   <navigator url="../api/indicator/indicator">8、平面指示器</navigator>
-  <navigator url="../api/visualPlane/visualPlane">9、可视化辅助平面 (v2版本)</navigator>
+  <navigator url="../api/visual-plane/visual-plane">9、可视化辅助平面 (v2版本)</navigator>
 </view>
 
 <view class="title">三、其他内容</view>

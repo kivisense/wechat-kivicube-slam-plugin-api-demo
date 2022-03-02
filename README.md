@@ -30,7 +30,7 @@
 
 #### 8、[平面指示器](../../tree/master/pages/api/indicator/)
 
-#### 9、[可视化辅助平面 (v2版本)](../../tree/master/pages/api/visualPlane/)
+#### 9、[可视化辅助平面 (v2版本)](../../tree/master/pages/api/visual-plane/)
 
 ### 三、其他内容
 
@@ -176,7 +176,7 @@ slam对象，拥有以下字段：
 | isGyroscope | Function | 判定当前是否为陀螺仪追踪 | [pages/base/sample/](../../tree/master/pages/base/sample/) |
 | standOnThePlane | Function | 让3D对象，站立在平面上的某个位置。 | [pages/base/sample/](../../tree/master/pages/base/sample/) |
 | standOnThePlaneById | Function | 让3D对象，站立在指定id的平面上。 | [pages/api/multi-plane/](../../tree/master/pages/api/multi-plane/) |
-| setVisualPlane | Function | 用3D素材来替换默认的可视化平面 | [pages/api/visualPlane/](../../tree/master/pages/api/visualPlane/) |
+| setVisualPlane | Function | 用3D素材来替换默认的可视化平面 | [pages/api/visualPlane/](../../tree/master/pages/api/visual-plane/) |
 | createEnvMapByCubeMap | Function | 创建一个基于6张图组成天空盒的环境贴图对象 | [pages/api/env-map/](../../tree/master/pages/api/env-map/) |
 | createEnvMapByPanorama | Function | 创建一个基于全景图的环境贴图对象 | [pages/api/env-map/](../../tree/master/pages/api/env-map/) |
 | createEnvMapByHDR | Function | 创建一个基于HDR文件的环境贴图对象 | [pages/api/env-map/](../../tree/master/pages/api/env-map/) |

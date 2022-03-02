@@ -18,7 +18,7 @@
     "pages/api/photo/photo",
     "pages/api/cloudar/cloudar",
     "pages/api/camera/camera",
-    "pages/api/visualPlane/visualPlane",
+    "pages/api/visual-plane/visual-plane",
     "pages/api/multi-plane/multi-plane",
     "pages/api/vio-scene/vio-scene"
   ],
