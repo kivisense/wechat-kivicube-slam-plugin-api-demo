@@ -3,7 +3,6 @@ import { errorHandler, showAuthModal, requestFile } from "../../../utils/utils";
 Page({
   data: {
     license: getApp().globalData.license,
-    version: "v1"
   },
 
   onLoad() {
