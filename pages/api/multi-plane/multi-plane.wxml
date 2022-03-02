@@ -1,7 +1,7 @@
 <kivicube-slam
   class="slam"
   license="{{license}}"
-  version="{{version}}"
+  version="v2"
   defaultPlaneVisible="{{defaultPlaneVisible}}"
   planeTracking="{{planeTracking}}"
   bindready="ready"

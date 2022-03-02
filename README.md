@@ -46,7 +46,7 @@
 
 #### 1、[多平面检测与事件监听 (v2版本)](../../tree/master/pages/api/multi-plane/)
 
-#### 2、[场景漫游 (v2版本)](../../tree/master/pages/api/vio-scene/)
+#### 2、[VIO(6DOF)追踪(v2版本)](../../tree/master/pages/api/vio-scene/)
 
 ### 五、其他
 

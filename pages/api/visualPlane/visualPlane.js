@@ -3,7 +3,6 @@ import { errorHandler, showAuthModal, requestFile } from "../../../utils/utils";
 Page({
   data: {
     license: getApp().globalData.license,
-    version: "v2",
     defaultPlaneVisible: true, // 在已检测到的平面上，显示默认的可视化平面
   },
 
@@ -17,7 +16,6 @@ Page({
 
   async ready({ detail: slam }) {
     try {
-      
       await slam.start();
       
       /**

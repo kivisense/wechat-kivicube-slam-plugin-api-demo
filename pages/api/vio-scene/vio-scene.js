@@ -3,7 +3,6 @@ import { errorHandler, showAuthModal, requestFile } from "../../../utils/utils";
 Page({
   data: {
     license: getApp().globalData.license,
-    version: "v2",
   },
 
   onLoad() {
@@ -25,8 +24,8 @@ Page({
         * 如果不设置模型的position，模型就会默认摆放在原点坐标，即手机所在位置。
         * -z轴就是手机的正前方，+y轴就是正上方，+x轴就是右手方向。可按此方向调整模型默认出现的位置。
       */
-     rabbitModel.position.z = -0.5;
-     rabbitModel.position.y = -0.2;
+      rabbitModel.position.z = -0.5;
+      rabbitModel.position.y = -0.2;
       slam.add(rabbitModel, 0.3);
 
       await slam.start();

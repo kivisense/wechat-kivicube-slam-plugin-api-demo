@@ -3,7 +3,6 @@ import { errorHandler, showAuthModal, requestFile } from "../../../utils/utils";
 Page({
   data: {
     license: getApp().globalData.license,
-    version: "v2",
     /**
      * horizontal(水平面)、vertical(竖直面)、both(水平面和竖直面)。
      * 注意：vertical、both这两个值只有version为v2且设备支持时才生效。插件版本>=1.3.0支持
@@ -73,7 +72,12 @@ Page({
     const anchor = anchors[0];
     console.warn("平面id：", anchor.id);
 
-    const {windowWidth, windowHeight} = this;
+    /**
+     * @todo
+     * 表面上：onload内调用一次api，这里重复取值就行了。
+     * 实际上：getSystemInfoSync这个api在这里调用拿到的宽高为undefined...
+    */
+    const { windowWidth, windowHeight } = this;
     // 在指定id的平面上放置模型
     const success = this.slam.standOnThePlaneById(
       this.rabbitModel,
@@ -83,7 +87,7 @@ Page({
     );
     
     console.warn("standOnThePlaneById success", success);
-    if(success) {
+    if (success) {
       console.warn(`模型已放置在id为${anchor.id}的平面上`);
     }
   },
