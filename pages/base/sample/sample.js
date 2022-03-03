@@ -68,6 +68,12 @@ Page({
       // 让兔子模型可用手势进行操作。默认点击移动到平面上的新位置，单指旋转，双指缩放。
       slam.setGesture(rabbitModel);
 
+      this._timer = setTimeout(() => {
+        console.log("当前是否处于追踪状态：", slam.isTracking());
+        console.log("当前是否为陀螺仪追踪：", slam.isGyroscope());
+        console.log("当前slam版本是否为v2：", slam.isSlamV2());
+      }, 3000)
+
       wx.hideLoading();
     } catch (e) {
       wx.hideLoading();
@@ -84,4 +90,8 @@ Page({
       errorHandler(detail);
     }
   },
+
+  onUnload() {
+    clearTimeout(this._timer);
+  }
 });

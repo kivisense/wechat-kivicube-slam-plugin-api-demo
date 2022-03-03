@@ -30,7 +30,6 @@
       "disablePlugins": [],
       "outputPath": ""
     },
-    "enableEngineNative": false,
     "useIsolateContext": true,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
@@ -48,7 +47,9 @@
   "debugOptions": {
     "hidedInDevtools": []
   },
-  "scripts": {},
+  "scripts": {
+    "beforeCompile": ""
+  },
   "isGameTourist": false,
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
