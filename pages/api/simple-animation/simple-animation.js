@@ -17,18 +17,22 @@ Page({
     try {
       const rabbitArrayBuffer = await this.downloadAsset;
       const rabbitModel = await slam.createGltfModel(rabbitArrayBuffer);
-       /**
-        * v1版本必须先将模型放置于平面上后才能围绕查看或者漫游。
-        * v2版本将模型放入场景中时，直接支持场景漫游功能。
-        * 当slam.start调用后，手机所在位置，就是世界坐标系的原点。
-        * 如果不设置模型的position，模型就会默认摆放在原点坐标，即手机所在位置。
-        * -z轴就是手机的正前方，+y轴就是正上方，+x轴就是右手方向。可按此方向调整模型默认出现的位置。
-      */
       rabbitModel.position.z = -0.5;
       rabbitModel.position.y = -0.2;
       slam.add(rabbitModel, 0.3);
 
       await slam.start();
+
+      const { windowWidth, windowHeight } = wx.getSystemInfoSync();
+      const x = Math.round(windowWidth / 2);
+      const y = Math.round(windowHeight / 2);
+      const resetPlane = true;
+      const success = slam.standOnThePlane(rabbitModel, x, y, resetPlane);
+      if (!success) {
+        wx.hideLoading();
+        errorHandler("放置模型至平面上失败，请对准平面再次打开重试");
+        return;
+      }
 
       this.startAnimate(rabbitModel);
 
