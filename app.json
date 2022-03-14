@@ -20,12 +20,14 @@
     "pages/api/camera/camera",
     "pages/api/visual-plane/visual-plane",
     "pages/api/multi-plane/multi-plane",
-    "pages/api/vio-scene/vio-scene"
+    "pages/api/vio-scene/vio-scene",
+    "pages/api/simple-animation/simple-animation",
+    "pages/api/tween-animation/tween-animation"
   ],
   "plugins": {
     "kivicube-slam": {
       "provider": "wx12ad8a61f049ea02",
-      "version": "1.3.0"
+      "version": "1.3.2"
     }
   },
   "window": {
