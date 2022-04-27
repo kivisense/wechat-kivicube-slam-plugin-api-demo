@@ -32,6 +32,10 @@
 
 #### 9、[可视化辅助平面 (v2版本)](../../tree/master/pages/api/visual-plane/)
 
+#### 10、[全景图](../../tree/master/pages/api/panorama/)
+
+#### 11、[全景视频](../../tree/master/pages/api/panorama-video/)
+
 ### 三、其他内容
 
 #### 1、[环境贴图](../../tree/master/pages/api/env-map/)
@@ -217,3 +221,5 @@ slam对象，拥有以下字段：
 | setGesture | Function | 设置手势作用的3D对象和功能 | [pages/api/gesture/](../../tree/master/pages/api/gesture/) |
 | dispatchTouchEvent | Function | 手动触发一个touch类事件 | [pages/api/penetrate-ui/](../../tree/master/pages/api/penetrate-ui/) |
 | takePhoto | Function | 拍照 | [pages/api/photo/](../../tree/master/pages/api/photo/) |
+| createPanorama | Function | 创建一个全景图对象 | [pages/api/panorama/](../../tree/master/pages/api/panorama/) |
+| createPanoramaVideo | Function | 创建一个全景图视频对象 | [pages/api/panorama-video/](../../tree/master/pages/api/panorama-video/) |

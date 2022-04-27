@@ -13,14 +13,12 @@ Page({
     try {
       const panoramaVideoUrl = "https://meta.kivisense.com/wechat-kivicube-slam-plugin-api-demo/panorama-video.mp4";
       /**
-       * @param {String} panoramaVideoUrl 全景视频地址
-       * @param {String} panoramaVideoThumbUrl 全景视频的缩略图，用于不支持3d渲染视频的时候显示，为空则降级缩略图功能无效
-       * @param {Number} sgments 全景视频的分段数 数值越高精度越高，全景视频如果看着有扭曲现象（不是畸变）可以适度调高此精度
-       * @param {Function} progress 全景视频加载进度
+       * @param {String} urlOrPath - 全景视频url地址或者小程序本地文件路径
+       * @param {String} [defaultThumbnailUrl] - 全景视频的缩略图，用于不支持3d渲染视频的时候显示，为空则降级缩略图功能无效
+       * @param {Number} [sgments=56] - 全景视频的分段数，数值越高精度越高，全景视频如果看着有扭曲现象（不是畸变）可以适度调高此精度
+       * @param {Function} [onProgress] - 全景视频加载进度回调函数
        * **/
-      const panoramaVideo = await slam.createPanoramaVideo(panoramaVideoUrl, "", 50, (progress) => {
-        console.log(progress);
-      });
+      const panoramaVideo = await slam.createPanoramaVideo(panoramaVideoUrl);
        /**
         * v1版本必须先将模型放置于平面上后才能围绕查看或者漫游。
         * v2版本将模型放入场景中时，直接支持场景漫游功能。
