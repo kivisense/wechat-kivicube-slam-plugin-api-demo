@@ -222,4 +222,4 @@ slam对象，拥有以下字段：
 | dispatchTouchEvent | Function | 手动触发一个touch类事件 | [pages/api/penetrate-ui/](../../tree/master/pages/api/penetrate-ui/) |
 | takePhoto | Function | 拍照 | [pages/api/photo/](../../tree/master/pages/api/photo/) |
 | createPanorama | Function | 创建一个全景图对象 | [pages/api/panorama/](../../tree/master/pages/api/panorama/) |
-| createPanoramaVideo | Function | 创建一个全景图视频对象 | [pages/api/panorama-video/](../../tree/master/pages/api/panorama-video/) |
+| createPanoramaVideo | Function | 创建一个全景视频对象 | [pages/api/panorama-video/](../../tree/master/pages/api/panorama-video/) |
