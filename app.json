@@ -23,12 +23,14 @@
     "pages/api/vio-scene/vio-scene",
     "pages/api/penetrate-ui/penetrate-ui",
     "pages/api/tween-animation/tween-animation",
-    "pages/api/simple-animation/simple-animation"
+    "pages/api/simple-animation/simple-animation",
+    "pages/api/panorama/panorama",
+    "pages/api/panorama-video/panorama-video"
   ],
   "plugins": {
     "kivicube-slam": {
       "provider": "wx12ad8a61f049ea02",
-      "version": "1.3.2"
+      "version": "1.3.7"
     }
   },
   "window": {
