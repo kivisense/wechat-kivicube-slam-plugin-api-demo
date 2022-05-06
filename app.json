@@ -25,12 +25,13 @@
     "pages/api/tween-animation/tween-animation",
     "pages/api/simple-animation/simple-animation",
     "pages/api/panorama/panorama",
-    "pages/api/panorama-video/panorama-video"
+    "pages/api/panorama-video/panorama-video",
+    "pages/api/sky-box/sky-box"
   ],
   "plugins": {
     "kivicube-slam": {
       "provider": "wx12ad8a61f049ea02",
-      "version": "1.3.7"
+      "version": "1.3.8"
     }
   },
   "window": {

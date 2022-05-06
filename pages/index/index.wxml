@@ -18,6 +18,7 @@
   <navigator url="../api/visual-plane/visual-plane">9、可视化辅助平面 (v2版本)</navigator>
   <navigator url="../api/panorama/panorama">10、全景图</navigator>
   <navigator url="../api/panorama-video/panorama-video">11、全景视频</navigator>
+  <navigator url="../api/sky-box/sky-box">12、天空盒</navigator>
 </view>
 
 <view class="title">三、其他内容</view>
