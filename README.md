@@ -36,6 +36,8 @@
 
 #### 11、[全景视频](../../tree/master/pages/api/panorama-video/)
 
+#### 12、[天空盒](../../tree/master/pages/api/sky-box/)
+
 ### 三、其他内容
 
 #### 1、[环境贴图](../../tree/master/pages/api/env-map/)
@@ -209,6 +211,9 @@ slam对象，拥有以下字段：
 | createGroup | Function | 创建一个组合3D对象。可用来装载其他3D对象(包括组合) | [pages/api/group/](../../tree/master/pages/api/group/) |
 | createAmbientLight | Function | 创建一个环境光3D对象 | [pages/api/light/](../../tree/master/pages/api/light/) |
 | createDirectionalLight | Function | 创建一个平行光3D对象 | [pages/api/light/](../../tree/master/pages/api/light/) |
+| createPanorama | Function | 创建一个全景图对象 | [pages/api/panorama/](../../tree/master/pages/api/panorama/) |
+| createPanoramaVideo | Function | 创建一个全景视频对象 | [pages/api/panorama-video/](../../tree/master/pages/api/panorama-video/) |
+| createSkyBox | Function | 创建一个天空盒对象 | [pages/api/sky-box/](../../tree/master/pages/api/sky-box/) |
 | defaultAmbientLight | Object | 获取默认的环境光3D对象 | [pages/api/light/](../../tree/master/pages/api/light/) |
 | defaultDirectionalLight | Object | 获取默认的平行光3D对象 | [pages/api/light/](../../tree/master/pages/api/light/) |
 | add | Function | 将上述创建好的3D对象，增加进组件之中去呈现。 | [pages/base/manage/](../../tree/master/pages/base/manage/) |
@@ -221,5 +226,3 @@ slam对象，拥有以下字段：
 | setGesture | Function | 设置手势作用的3D对象和功能 | [pages/api/gesture/](../../tree/master/pages/api/gesture/) |
 | dispatchTouchEvent | Function | 手动触发一个touch类事件 | [pages/api/penetrate-ui/](../../tree/master/pages/api/penetrate-ui/) |
 | takePhoto | Function | 拍照 | [pages/api/photo/](../../tree/master/pages/api/photo/) |
-| createPanorama | Function | 创建一个全景图对象 | [pages/api/panorama/](../../tree/master/pages/api/panorama/) |
-| createPanoramaVideo | Function | 创建一个全景视频对象 | [pages/api/panorama-video/](../../tree/master/pages/api/panorama-video/) |
