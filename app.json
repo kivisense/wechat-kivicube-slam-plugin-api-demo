@@ -26,7 +26,8 @@
     "pages/api/simple-animation/simple-animation",
     "pages/api/panorama/panorama",
     "pages/api/panorama-video/panorama-video",
-    "pages/api/sky-box/sky-box"
+    "pages/api/sky-box/sky-box",
+    "pages/api/model-render/model-render"
   ],
   "plugins": {
     "kivicube-slam": {
