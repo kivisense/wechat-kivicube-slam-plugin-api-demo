@@ -23,7 +23,10 @@
     "pages/api/vio-scene/vio-scene",
     "pages/api/penetrate-ui/penetrate-ui",
     "pages/api/tween-animation/tween-animation",
-    "pages/api/simple-animation/simple-animation"
+    "pages/api/simple-animation/simple-animation",
+    "pages/api/panorama/panorama",
+    "pages/api/panorama-video/panorama-video",
+    "pages/api/sky-box/sky-box"
   ],
   "plugins": {
     "kivicube-slam": {

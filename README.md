@@ -32,6 +32,12 @@
 
 #### 9、[可视化辅助平面 (v2版本)](../../tree/master/pages/api/visual-plane/)
 
+#### 10、[全景图](../../tree/master/pages/api/panorama/)
+
+#### 11、[全景视频](../../tree/master/pages/api/panorama-video/)
+
+#### 12、[天空盒](../../tree/master/pages/api/sky-box/)
+
 ### 三、其他内容
 
 #### 1、[环境贴图](../../tree/master/pages/api/env-map/)
@@ -156,6 +162,22 @@ slam.add(videoGroup);
 >应用：如果想精确的将模型放置在某个位置，但因为手指触碰屏幕范围太大，点击的坐标不太准确，那么就可以添加一个平面指示器来间接实现。
 >让用户移动手机，以便指示器达到指定的位置，此时就可以让用户任意点击一下屏幕，在点击回调中，从指示器模型上拿到精准的位置坐标(model3d.position属性值)，再将这个值赋予希望放置过去的模型即可。
 
+### standOnThePlane
+
+slam对象上的核心API，会使传入的3D对象放置在平面上的某个位置。
+
+**注意：此API会改变3D对象的position和rotation。如果需要3D对象放置后的rotation不被改变，可以使用createGroup创建一个组合3D对象来包裹住3D对象，再使用此API进行放置。另一个standOnThePlaneById同理。示例如下：**
+
+```
+// 对3D对象的旋转进行改变
+obj.rotation.x = Math.PI / 2;
+
+const group = slam.createGroup();
+group.add(obj);
+// 使用group进行放置，内部的3D对象的旋转将不会被改变
+slam.standOnThePlane(group, x, y, resetPlane);
+```
+
 ## 高级API对象
 
 阅读了上述的基础代码(即如何获取高级API)之后，会发现组件会通过ready事件，传递出一个拥有各种API、信息的对象【称之为高级API对象】。
@@ -173,8 +195,8 @@ slam对象，拥有以下字段：
 | isTracking | Function | 判定当前是否处于追踪状态 | [pages/base/sample/](../../tree/master/pages/base/sample/) |
 | isSlamV2 | Function | 判定当前slam版本是否为`v2`版本 | [pages/base/sample/](../../tree/master/pages/base/sample/) |
 | isGyroscope | Function | 判定当前是否为陀螺仪追踪 | [pages/base/sample/](../../tree/master/pages/base/sample/) |
-| standOnThePlane | Function | 让3D对象，站立在平面上的某个位置。 | [pages/base/sample/](../../tree/master/pages/base/sample/) |
-| standOnThePlaneById | Function | 让3D对象，站立在指定id的平面上。 | [pages/api/multi-plane/](../../tree/master/pages/api/multi-plane/) |
+| standOnThePlane | Function | 让3D对象，放置在平面上的某个位置。 | [pages/base/sample/](../../tree/master/pages/base/sample/) |
+| standOnThePlaneById | Function | 让3D对象，放置在指定id的平面上。 | [pages/api/multi-plane/](../../tree/master/pages/api/multi-plane/) |
 | setVisualPlane | Function | 用3D素材来替换默认的可视化平面 | [pages/api/visual-plane/](../../tree/master/pages/api/visual-plane/) |
 | createEnvMapByCubeMap | Function | 创建一个基于6张图组成天空盒的环境贴图对象 | [pages/api/env-map/](../../tree/master/pages/api/env-map/) |
 | createEnvMapByPanorama | Function | 创建一个基于全景图的环境贴图对象 | [pages/api/env-map/](../../tree/master/pages/api/env-map/) |
@@ -188,6 +210,9 @@ slam对象，拥有以下字段：
 | createGroup | Function | 创建一个组合3D对象。可用来装载其他3D对象(包括组合) | [pages/api/group/](../../tree/master/pages/api/group/) |
 | createAmbientLight | Function | 创建一个环境光3D对象 | [pages/api/light/](../../tree/master/pages/api/light/) |
 | createDirectionalLight | Function | 创建一个平行光3D对象 | [pages/api/light/](../../tree/master/pages/api/light/) |
+| createPanorama | Function | 创建一个全景图对象 | [pages/api/panorama/](../../tree/master/pages/api/panorama/) |
+| createPanoramaVideo | Function | 创建一个全景视频对象 | [pages/api/panorama-video/](../../tree/master/pages/api/panorama-video/) |
+| createSkyBox | Function | 创建一个天空盒对象 | [pages/api/sky-box/](../../tree/master/pages/api/sky-box/) |
 | defaultAmbientLight | Object | 获取默认的环境光3D对象 | [pages/api/light/](../../tree/master/pages/api/light/) |
 | defaultDirectionalLight | Object | 获取默认的平行光3D对象 | [pages/api/light/](../../tree/master/pages/api/light/) |
 | add | Function | 将上述创建好的3D对象，增加进组件之中去呈现。 | [pages/base/manage/](../../tree/master/pages/base/manage/) |
