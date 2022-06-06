@@ -28,7 +28,7 @@
   "plugins": {
     "kivicube-slam": {
       "provider": "wx12ad8a61f049ea02",
-      "version": "1.3.2"
+      "version": "1.3.9"
     }
   },
   "window": {

@@ -65,10 +65,9 @@
 ## 快速体验
 
 1. 使用git克隆此仓库至本地，可使用命令`git clone git@github.com:kivisense/wechat-kivicube-slam-plugin-api-demo.git`，或者点击右上角按钮Code -> Download ZIP下载代码。
-2. 使用[微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/stable.html)导入本项目。**重要：在“导入项目”时，必须将AppID修改为，被我们license授权过的appid。**
-3. 打开app.js文件，替换为我们给予你的license。
-4. 服务器域名配置。有两种方案，一是直接在手机上打开小程序的“开发调试”模式，参考[vConsole](https://developers.weixin.qq.com/miniprogram/dev/framework/usability/vConsole.html)；二是在小程序后台，将域名“ https://kivicube-resource.kivisense.com ”配置到request和downloadFile两项中，参考[微信官方文档 - 网络](https://developers.weixin.qq.com/miniprogram/dev/framework/ability/network.html)。推荐第二种。
-5. 之后，可在微信开发者工具上，点击“预览”按钮，用微信扫描打开体验。【Slam功能不支持在开发者工具上运行，也不支持真机调试。】
+2. 使用[微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/stable.html)导入本项目。
+3. 服务器域名配置。有两种方案，一是直接在手机上打开小程序的“开发调试”模式，参考[vConsole](https://developers.weixin.qq.com/miniprogram/dev/framework/usability/vConsole.html)；二是在小程序后台，将域名“ https://kivicube-resource.kivisense.com ”配置到request和downloadFile两项中，参考[微信官方文档 - 网络](https://developers.weixin.qq.com/miniprogram/dev/framework/ability/network.html)。推荐第二种。
+4. 之后，可在微信开发者工具上，点击“预览”按钮，用微信扫描打开体验。【Slam功能不支持在开发者工具上运行，也不支持真机调试。】
 
 ## API应用说明
 
