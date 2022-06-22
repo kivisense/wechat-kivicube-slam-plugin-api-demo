@@ -73,14 +73,14 @@ Page({
         doubleFinger: true,     // 开启双指缩小和放大模型
         scaleMax: 1000,         // 设置模型最大放大值
         scaleMin: 0,            // 设置模型最小缩放值
-        clickResult () {}
+        clickResult () {}       // 设置模型放置后的回调函数
       }
       slam.setGesture(model3d, {
         ...defaultOptions,
 
-        clickResult() {
+        clickResult(success) {
           wx.showToast({
-            title: "模型被点击",
+            title: `模型放置结果：${success}`,
             icon: "none"
           });
         },
@@ -117,9 +117,9 @@ Page({
     this.slam.setGesture(this.model3d, {
       ...options,
       
-      clickResult() {
+      clickResult(success) {
         wx.showToast({
-          title: "模型被点击",
+          title: `模型放置结果：${success}`,
           icon: "none"
         });
       },

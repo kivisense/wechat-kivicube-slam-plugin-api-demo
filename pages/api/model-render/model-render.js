@@ -39,18 +39,18 @@ Page({
         return;
       }
       
-      let showModal = false;
+      let isVisible = false;
       let timer = null;
       /**
        * 注意：
        * 此方法暂不适用带骨骼动画的模型，带骨骼动画的模型未出现在相机画面内，也会执行onBeforeRender
        */
       model3d.onBeforeRender = () => {
-        if (showModal) {
+        if (isVisible) {
           clearTimeout(timer);
           
           timer = setTimeout(() => {
-            showModal = false;
+            isVisible = false;
             wx.showToast({
               title: "模型未在相机画面内",
               icon: "none"
@@ -61,7 +61,7 @@ Page({
             title: "模型出现在相机画面内",
             icon: "none"
           });
-          showModal = true;
+          isVisible = true;
         }
       };
 
