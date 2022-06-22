@@ -1,0 +1,10 @@
+<kivicube-slam
+  class="slam"
+  license="{{license}}"
+  bindready="ready"
+  binderror="error"
+/>
+
+<view class="operate">
+  <button bind:tap="optionChange" data-index="{{index}}" wx:for="{{config}}" wx:key="key">{{item.name}}:{{item.value}}</button>
+</view>

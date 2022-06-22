@@ -68,6 +68,8 @@
 
 #### 6、[云识别](../../tree/master/pages/api/cloudar/)
 
+#### 7、[简单判断模型是否在相机画面内](../../tree/master/pages/api/model-render/)
+
 ## 快速体验
 
 1. 使用git克隆此仓库至本地，可使用命令`git clone git@github.com:kivisense/wechat-kivicube-slam-plugin-api-demo.git`，或者点击右上角按钮Code -> Download ZIP下载代码。

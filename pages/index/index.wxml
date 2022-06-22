@@ -43,4 +43,5 @@
   <navigator url="../api/simple-animation/simple-animation">4、简单的自定义动画</navigator>
   <navigator url="../api/tween-animation/tween-animation">5、实现缓动动画</navigator>
   <navigator url="../api/cloudar/cloudar">6、云识别</navigator>
+  <navigator url="../api/model-render/model-render">7、简单判断模型是否在相机画面内</navigator>
 </view>
