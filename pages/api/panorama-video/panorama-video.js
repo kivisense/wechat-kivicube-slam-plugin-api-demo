@@ -39,12 +39,19 @@ Page({
       // slam v1 需要放置后才能显示
       if (slam.isSlamV1()) {
         const { windowWidth, windowHeight } = wx.getSystemInfoSync();
-        slam.standOnThePlane(
+        
+        const success = slam.standOnThePlane(
           panoramaVideo,
           Math.round(windowWidth / 2),
           Math.round(windowHeight / 2),
           true,
         );
+
+        wx.hideLoading();
+        if (!success) {
+          errorHandler("放置模型至平面上失败，请对准平面再次打开重试");
+        }
+
       }
 
       wx.hideLoading();

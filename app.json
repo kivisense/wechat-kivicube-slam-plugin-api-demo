@@ -27,12 +27,13 @@
     "pages/api/panorama/panorama",
     "pages/api/panorama-video/panorama-video",
     "pages/api/sky-box/sky-box",
-    "pages/api/model-render/model-render"
+    "pages/api/model-render/model-render",
+    "pages/api/gesture/gesture"
   ],
   "plugins": {
     "kivicube-slam": {
       "provider": "wx12ad8a61f049ea02",
-      "version": "1.3.8"
+      "version": "1.3.12"
     }
   },
   "window": {
