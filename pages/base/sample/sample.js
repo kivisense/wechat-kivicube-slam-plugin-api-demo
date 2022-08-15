@@ -65,8 +65,30 @@ Page({
       // 如果返回false，代表尝试站在平面上失败。有可能是平面检测失败。
       console.log("standOnThePlane success", success);
 
+      // 站立失败后的重新站立尝试
+      // const stand = (times) => {
+      //   const success = slam.standOnThePlane(obj, x, y, true);
+      //   if (success) return true;
+
+      //   if (times > 0) {
+      //     times--;
+      //     console.log(`放置失败，剩余重试次数：${times}`);
+      //     return stand(times);
+      //   }
+      // }
+
+      // stand(5);
+
       // 让兔子模型可用手势进行操作。默认点击移动到平面上的新位置，单指旋转，双指缩放。
       slam.setGesture(rabbitModel);
+
+      // 让兔子模型始终面向摄像头
+      // const camera = slam.defaultCamera;
+      // rabbitModel.onBeforeRender = () => {
+      //   const {x, y, z} = camera.position;
+      //   rabbitModel.lookAt(x, y, z);
+      // }
+      
 
       this._timer = setTimeout(() => {
         console.log("当前是否处于追踪状态：", slam.isTracking());
