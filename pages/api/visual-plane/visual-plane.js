@@ -25,6 +25,7 @@ Page({
       const reticleModel = await slam.createGltfModel(reticleArrayBuffer);
 
       this._timer1 = setTimeout(() => {
+        this.setData({ defaultPlaneVisible: false });
         slam.setVisualPlane(reticleModel)
       }, 5000);
 
