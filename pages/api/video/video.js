@@ -23,6 +23,11 @@ Page({
   },
 
   async ready({ detail: slam }) {
+    /**
+     * 注意：同个页面使用多个video，建议不超过3个;
+     * https://developers.weixin.qq.com/community/develop/doc/000e4ef22583d8961919efb6b56009
+     */
+
     try {
       const [videoPath, alphaVideoPath] = await this.downloadAsset;
       // 当视频因为特殊原因不能显示时，会使用此处指定的缩略图展示。为空则降级缩略图功能无效。
