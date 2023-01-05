@@ -14,61 +14,61 @@
 
 ### 二、素材内容
 
-#### 1、[3D对象共有API【基类】](../../tree/master/pages/api/common/) - 包含子对象处理、点击事件、渲染钩子函数、显示隐藏等的示例
+#### 1、[3D对象共有API【基类】](../../tree/master/pages/asset/common/) - 包含子对象处理、点击事件、渲染钩子函数、显示隐藏等的示例
 
-#### 2、[图片](../../tree/master/pages/api/image/)
+#### 2、[图片](../../tree/master/pages/asset/image/)
 
-#### 3、[精灵图序列](../../tree/master/pages/api/image-sprite/)
+#### 3、[精灵图序列](../../tree/master/pages/asset/image-sprite/)
 
-#### 4、[视频/透明视频](../../tree/master/pages/api/video/)
+#### 4、[视频/透明视频](../../tree/master/pages/asset/video/)
 
-#### 5、[gltf/glb模型](../../tree/master/pages/api/model/)
+#### 5、[gltf/glb模型](../../tree/master/pages/asset/model/)
 
-#### 6、[组合](../../tree/master/pages/api/group/)
+#### 6、[组合](../../tree/master/pages/asset/group/)
 
-#### 7、[将素材指定为遮罩](../../tree/master/pages/api/mask/)
+#### 7、[将素材指定为遮罩](../../tree/master/pages/asset/mask/)
 
-#### 8、[平面指示器](../../tree/master/pages/api/indicator/)
+#### 8、[平面指示器](../../tree/master/pages/asset/indicator/)
 
-#### 9、[可视化辅助平面 (v2版本)](../../tree/master/pages/api/visual-plane/)
+#### 9、[可视化辅助平面 (v2版本)](../../tree/master/pages/asset/visual-plane/)
 
-#### 10、[全景图](../../tree/master/pages/api/panorama/)
+#### 10、[全景图](../../tree/master/pages/asset/panorama/)
 
-#### 11、[全景视频](../../tree/master/pages/api/panorama-video/)
+#### 11、[全景视频](../../tree/master/pages/asset/panorama-video/)
 
-#### 12、[天空盒](../../tree/master/pages/api/sky-box/)
+#### 12、[天空盒](../../tree/master/pages/asset/sky-box/)
 
 ### 三、其他内容
 
-#### 1、[环境贴图](../../tree/master/pages/api/env-map/)
+#### 1、[环境贴图](../../tree/master/pages/other-asset/env-map/)
 
-#### 2、[光照](../../tree/master/pages/api/light/)
+#### 2、[光照](../../tree/master/pages/other-asset/light/)
 
-#### 3、[阴影](../../tree/master/pages/api/shadow/)
+#### 3、[阴影](../../tree/master/pages/other-asset/shadow/)
 
-#### 4、[Camera](../../tree/master/pages/api/camera/) - 获取位置、3D素材放置屏幕上
+#### 4、[Camera](../../tree/master/pages/other-asset/camera/) - 获取位置、3D素材放置屏幕上
 
 ### 四、Slam功能
 
-#### 1、[多平面检测与事件监听 (v2版本)](../../tree/master/pages/api/multi-plane/)
+#### 1、[多平面检测与事件监听 (v2版本)](../../tree/master/pages/ability/multi-plane/)
 
-#### 2、[VIO(6DOF)追踪(v2版本)](../../tree/master/pages/api/vio-scene/)
+#### 2、[VIO(6DOF)追踪(v2版本)](../../tree/master/pages/ability/vio-scene/)
 
 ### 五、其他
 
-#### 1、[手势](../../tree/master/pages/api/gesture/)
+#### 1、[手势](../../tree/master/pages/others/gesture/)
 
-#### 2、[拍照处理](../../tree/master/pages/api/photo/)
+#### 2、[拍照处理](../../tree/master/pages/others/photo/)
 
-#### 3、[穿透自定义UI点击到模型](../../tree/master/pages/api/penetrate-ui/)
+#### 3、[穿透自定义UI点击到模型](../../tree/master/pages/others/penetrate-ui/)
 
-#### 4、[简单的自定义动画](../../tree/master/pages/api/simple-animation/)
+#### 4、[简单的自定义动画](../../tree/master/pages/others/simple-animation/)
 
-#### 5、[实现缓动动画](../../tree/master/pages/api/tween-animation/)
+#### 5、[实现缓动动画](../../tree/master/pages/others/tween-animation/)
 
-#### 6、[云识别](../../tree/master/pages/api/cloudar/)
+#### 6、[云识别](../../tree/master/pages/others/cloudar/)
 
-#### 7、[简单判断模型是否在相机画面内](../../tree/master/pages/api/model-render/)
+#### 7、[简单判断模型是否在相机画面内](../../tree/master/pages/others/model-render/)
 
 ## 快速体验
 
@@ -204,32 +204,32 @@ slam对象，拥有以下字段：
 | isSlamV2 | Function | 判定当前slam版本是否为`v2`版本 | [pages/base/sample/](../../tree/master/pages/base/sample/) |
 | isGyroscope | Function | 判定当前是否为陀螺仪追踪 | [pages/base/sample/](../../tree/master/pages/base/sample/) |
 | standOnThePlane | Function | 让3D对象，放置在平面上的某个位置。 | [pages/base/sample/](../../tree/master/pages/base/sample/) |
-| standOnThePlaneById | Function | 让3D对象，放置在指定id的平面上。 | [pages/api/multi-plane/](../../tree/master/pages/api/multi-plane/) |
-| setVisualPlane | Function | 用3D素材来替换默认的可视化平面 | [pages/api/visual-plane/](../../tree/master/pages/api/visual-plane/) |
-| createEnvMapByCubeMap | Function | 创建一个基于6张图组成天空盒的环境贴图对象 | [pages/api/env-map/](../../tree/master/pages/api/env-map/) |
-| createEnvMapByPanorama | Function | 创建一个基于全景图的环境贴图对象 | [pages/api/env-map/](../../tree/master/pages/api/env-map/) |
-| createEnvMapByHDR | Function | 创建一个基于HDR文件的环境贴图对象 | [pages/api/env-map/](../../tree/master/pages/api/env-map/) |
-| createEnvMapByImage | Function | 创建一个基于图片的环境贴图对象 | [pages/api/env-map/](../../tree/master/pages/api/env-map/) |
-| createImage | Function | 创建一个图片素材3D对象 | [pages/api/image/](../../tree/master/pages/api/image/) |
-| createImageSprite | Function | 创建一个精灵图(动图)素材3D对象 | [pages/api/image-sprite/](../../tree/master/pages/api/image-sprite/) |
-| createVideo | Function | 创建一个视频素材3D对象 | [pages/api/video/](../../tree/master/pages/api/video/) |
-| createAlphaVideo | Function | 创建一个透明视频素材3D对象 | [pages/api/video/](../../tree/master/pages/api/video/) |
-| createGltfModel | Function | 创建一个gltf/glb格式的模型素材3D对象 | [pages/api/model/](../../tree/master/pages/api/model/) |
-| createGroup | Function | 创建一个组合3D对象。可用来装载其他3D对象(包括组合) | [pages/api/group/](../../tree/master/pages/api/group/) |
-| createAmbientLight | Function | 创建一个环境光3D对象 | [pages/api/light/](../../tree/master/pages/api/light/) |
-| createDirectionalLight | Function | 创建一个平行光3D对象 | [pages/api/light/](../../tree/master/pages/api/light/) |
-| createPanorama | Function | 创建一个全景图对象 | [pages/api/panorama/](../../tree/master/pages/api/panorama/) |
-| createPanoramaVideo | Function | 创建一个全景视频对象 | [pages/api/panorama-video/](../../tree/master/pages/api/panorama-video/) |
-| createSkyBox | Function | 创建一个天空盒对象 | [pages/api/sky-box/](../../tree/master/pages/api/sky-box/) |
-| defaultAmbientLight | Object | 获取默认的环境光3D对象 | [pages/api/light/](../../tree/master/pages/api/light/) |
-| defaultDirectionalLight | Object | 获取默认的平行光3D对象 | [pages/api/light/](../../tree/master/pages/api/light/) |
+| standOnThePlaneById | Function | 让3D对象，放置在指定id的平面上。 | [pages/ability/multi-plane/](../../tree/master/pages/ability/multi-plane/) |
+| setVisualPlane | Function | 用3D素材来替换默认的可视化平面 | [pages/asset/visual-plane/](../../tree/master/pages/asset/visual-plane/) |
+| createEnvMapByCubeMap | Function | 创建一个基于6张图组成天空盒的环境贴图对象 | [pages/other-asset/env-map/](../../tree/master/pages/other-asset/env-map/) |
+| createEnvMapByPanorama | Function | 创建一个基于全景图的环境贴图对象 | [pages/other-asset/env-map/](../../tree/master/pages/other-asset/env-map/) |
+| createEnvMapByHDR | Function | 创建一个基于HDR文件的环境贴图对象 | [pages/other-asset/env-map/](../../tree/master/pages/other-asset/env-map/) |
+| createEnvMapByImage | Function | 创建一个基于图片的环境贴图对象 | [pages/other-asset/env-map/](../../tree/master/pages/other-asset/env-map/) |
+| createImage | Function | 创建一个图片素材3D对象 | [pages/asset/image/](../../tree/master/pages/asset/image/) |
+| createImageSprite | Function | 创建一个精灵图(动图)素材3D对象 | [pages/asset/image-sprite/](../../tree/master/pages/asset/image-sprite/) |
+| createVideo | Function | 创建一个视频素材3D对象 | [pages/asset/video/](../../tree/master/pages/asset/video/) |
+| createAlphaVideo | Function | 创建一个透明视频素材3D对象 | [pages/asset/video/](../../tree/master/pages/asset/video/) |
+| createGltfModel | Function | 创建一个gltf/glb格式的模型素材3D对象 | [pages/asset/model/](../../tree/master/pages/asset/model/) |
+| createGroup | Function | 创建一个组合3D对象。可用来装载其他3D对象(包括组合) | [pages/asset/group/](../../tree/master/pages/asset/group/) |
+| createAmbientLight | Function | 创建一个环境光3D对象 | [pages/other-asset/light/](../../tree/master/pages/other-asset/light/) |
+| createDirectionalLight | Function | 创建一个平行光3D对象 | [pages/other-asset/light/](../../tree/master/pages/other-asset/light/) |
+| createPanorama | Function | 创建一个全景图对象 | [pages/asset/panorama/](../../tree/master/pages/asset/panorama/) |
+| createPanoramaVideo | Function | 创建一个全景视频对象 | [pages/asset/panorama-video/](../../tree/master/pages/asset/panorama-video/) |
+| createSkyBox | Function | 创建一个天空盒对象 | [pages/asset/sky-box/](../../tree/master/pages/asset/sky-box/) |
+| defaultAmbientLight | Object | 获取默认的环境光3D对象 | [pages/other-asset/light/](../../tree/master/pages/other-asset/light/) |
+| defaultDirectionalLight | Object | 获取默认的平行光3D对象 | [pages/other-asset/light/](../../tree/master/pages/other-asset/light/) |
 | add | Function | 将上述创建好的3D对象，增加进组件之中去呈现。 | [pages/base/manage/](../../tree/master/pages/base/manage/) |
-| addPlaneIndicator | Function | 将素材3D对象，以平面指示器的形式放入组件中呈现。 | [pages/api/indicator/](../../tree/master/pages/api/indicator/) |
-| removePlaneIndicator | Function | 移除作为平面指示器的素材3D对象 | [pages/api/indicator/](../../tree/master/pages/api/indicator/) |
+| addPlaneIndicator | Function | 将素材3D对象，以平面指示器的形式放入组件中呈现。 | [pages/asset/indicator/](../../tree/master/pages/asset/indicator/) |
+| removePlaneIndicator | Function | 移除作为平面指示器的素材3D对象 | [pages/asset/indicator/](../../tree/master/pages/asset/indicator/) |
 | remove | Function | 移除组件中的某个3D对象 | [pages/base/manage/](../../tree/master/pages/base/manage/) |
 | getAllObject | Function | 获取组件中所有的3D对象 | [pages/base/manage/](../../tree/master/pages/base/manage/) |
 | destroyObject | Function | 销毁创建的某个3D对象。(回收内存) | [pages/base/manage/](../../tree/master/pages/base/manage/) |
 | clear | Function | 清空并销毁组件中所有的3D对象和内容 | [pages/base/manage/](../../tree/master/pages/base/manage/) |
-| setGesture | Function | 设置手势作用的3D对象和功能 | [pages/api/gesture/](../../tree/master/pages/api/gesture/) |
-| dispatchTouchEvent | Function | 手动触发一个touch类事件 | [pages/api/penetrate-ui/](../../tree/master/pages/api/penetrate-ui/) |
-| takePhoto | Function | 拍照 | [pages/api/photo/](../../tree/master/pages/api/photo/) |
+| setGesture | Function | 设置手势作用的3D对象和功能 | [pages/others/gesture/](../../tree/master/pages/others/gesture/) |
+| dispatchTouchEvent | Function | 手动触发一个touch类事件 | [pages/others/penetrate-ui/](../../tree/master/pages/others/penetrate-ui/) |
+| takePhoto | Function | 拍照 | [pages/others/photo/](../../tree/master/pages/others/photo/) |

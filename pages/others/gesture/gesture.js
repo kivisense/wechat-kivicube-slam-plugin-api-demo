@@ -112,7 +112,9 @@ Page({
       return [item.key, item.value];
     });
 
+    
     const options = Object.fromEntries(arr);
+    console.log(options);
     
     this.slam.setGesture(this.model3d, {
       ...options,
