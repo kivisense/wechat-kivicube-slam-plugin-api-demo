@@ -28,7 +28,8 @@
     "pages/others/tween-animation/tween-animation",
     "pages/others/simple-animation/simple-animation",
     "pages/others/model-render/model-render",
-    "pages/others/gesture/gesture"
+    "pages/others/gesture/gesture",
+    "pages/others/load-compressed-gltf/load-compressed-gltf"
   ],
   "plugins": {
     "kivicube-slam": {

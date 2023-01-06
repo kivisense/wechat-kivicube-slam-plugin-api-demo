@@ -19,6 +19,7 @@ Page({
   },
 
   async ready({ detail: slam }) {
+    this.slam = slam;
     try {
       const [rabbitArrayBuffer, envMapArrayBuffer] = await this.downloadAsset;
       const [rabbitModel, envMap] = await Promise.all([
@@ -89,6 +90,21 @@ Page({
     } else {
       errorHandler(detail);
     }
+  },
+
+  handleTap() {
+    const { slam } = this;
+    // 获取组件中所有的3D对象
+    const list = slam.getAllObject();
+    list.forEach(obj => {
+      // 移除组件中的3D对象
+      slam.remove(obj);
+      // 销毁创建的3D对象(回收内存)
+      slam.destroyObject(obj);
+    });
+
+    // 清空并销毁组件中所有的3D对象和内容 (与以上的操作等效)
+    // slam.clear();
   },
 
   onUnload() {
