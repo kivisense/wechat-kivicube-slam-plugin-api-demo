@@ -1,9 +1,6 @@
 <kivicube-slam
   class="slam"
   license="{{license}}"
-  version="v1"
   bindready="ready"
   binderror="error"
 />
-
-<button class="clear-btn" bindtap="handleTap">移除并销毁对象</button>

@@ -3,3 +3,11 @@
   width: 100vw;
   height: 100vh;
 }
+
+.clear-btn {
+  position: absolute;
+  left: 50%;
+  bottom: 10vw;
+  z-index: 2;
+  transform: translateX(-50%);
+}
