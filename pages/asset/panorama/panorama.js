@@ -7,7 +7,7 @@ Page({
 
   onLoad() {
     wx.showLoading({ title: "初始化中..."});
-    this.downloadAsset = requestFile("https://kivicube-resource.kivisense.com/projects/wechat-kivicube-slam-plugin-api-demo/panorama.jpg");
+    this.downloadAsset = requestFile("https://meta.kivisense.com/kivicube-slam-mp-plugin/demo-assets/image/panorama.jpg");
   },
 
   async ready({ detail: slam }) {

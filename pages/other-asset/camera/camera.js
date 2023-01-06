@@ -10,10 +10,10 @@ Page({
 
     this.downloadAsset = Promise.all([
       requestFile(
-        "https://kivicube-resource.kivisense.com/wechat-kivicube-slam-plugin-api-demo/rabbit.glb"
+        "https://meta.kivisense.com/kivicube-slam-mp-plugin/demo-assets/model/rabbit.glb"
       ),
       downloadFile(
-        "https://kivicube-resource.kivisense.com/wechat-kivicube-slam-plugin-api-demo/glow.mp4"
+        "https://meta.kivisense.com/kivicube-slam-mp-plugin/demo-assets/video/glow.mp4"
       )
     ]);
   },

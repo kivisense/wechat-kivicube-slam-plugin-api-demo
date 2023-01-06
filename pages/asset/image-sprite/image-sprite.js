@@ -11,7 +11,7 @@ Page({
     wx.showLoading({ title: "初始化中...", mask: true });
 
     this.downloadAsset = requestFile(
-      "https://kivicube-resource.kivisense.com/wechat-kivicube-slam-plugin-api-demo/music-effect.png"
+      "https://meta.kivisense.com/kivicube-slam-mp-plugin/demo-assets/image/music-effect.png"
     );
   },
 

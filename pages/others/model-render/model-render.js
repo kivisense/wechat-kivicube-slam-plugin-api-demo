@@ -7,7 +7,7 @@ Page({
 
   onLoad() {
     wx.showLoading({ title: "初始化中...", mask: true });
-    this.downloadAsset = downloadFile("https://kivicube-resource.kivisense.com/wechat-kivicube-slam-plugin-api-demo/slam.mp4")
+    this.downloadAsset = downloadFile("https://meta.kivisense.com/kivicube-slam-mp-plugin/demo-assets/video/slam.mp4")
   },
 
   async ready({ detail: slam }) {

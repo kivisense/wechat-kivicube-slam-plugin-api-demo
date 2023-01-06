@@ -12,18 +12,18 @@ Page({
 
     this.downloadAsset = Promise.all([
       requestFile(
-        "https://kivicube-resource.kivisense.com/wechat-kivicube-slam-plugin-api-demo/DamagedHelmet.glb"
+        "https://meta.kivisense.com/kivicube-slam-mp-plugin/demo-assets/model/damaged-helmet.glb"
       ),
       requestFile(
-        "https://kivicube-resource.kivisense.com/wechat-kivicube-slam-plugin-api-demo/default.hdr"
+        "https://meta.kivisense.com/kivicube-slam-mp-plugin/demo-assets/hdr/default.hdr"
       ),
       requestFile(
-        "https://kivicube-resource.kivisense.com/wechat-kivicube-slam-plugin-api-demo/360.jpg"
+        "https://meta.kivisense.com/kivicube-slam-mp-plugin/demo-assets/image/360.jpg"
       ),
       Promise.all(
         ["nx", "px", "ny", "py", "nz", "pz"].map((name) =>
           requestFile(
-            `https://kivicube-resource.kivisense.com/wechat-kivicube-slam-plugin-api-demo/cube-map/${name}.jpg`
+            `https://meta.kivisense.com/kivicube-slam-mp-plugin/demo-assets/image/cube-map/${name}.jpg`
           )
         )
       ),

@@ -7,14 +7,14 @@ Page({
 
   onLoad() {
     wx.showLoading({ title: "初始化中..."});
-    this.downloadAsset = requestFile("https://kivicube-resource.kivisense.com/wechat-kivicube-slam-plugin-api-demo/robot.glb");
+    this.downloadAsset = requestFile("https://meta.kivisense.com/kivicube-slam-mp-plugin/demo-assets/model/robot.glb");
   },
 
   async ready({ detail: slam }) {
     try {
-      const cubeImageUrl = "https://kivicube-resource.kivisense.com/projects/wechat-kivicube-slam-plugin-api-demo/skybox";
-      const cubeImages = ["px.jpg", "nx.jpg", "py.jpg", "ny.jpg", "pz.jpg", "nz.jpg"];
-      const cubePromises = cubeImages.map(image => requestFile(`${cubeImageUrl}/${image}`));
+      const cubeImageUrl = "https://meta.kivisense.com/kivicube-slam-mp-plugin/demo-assets/image/skybox";
+      const cubeImages = ["px", "nx", "py", "ny", "pz", "nz"];
+      const cubePromises = cubeImages.map(image => requestFile(`${cubeImageUrl}/${image}.jpg`));
 
       const [px, nx, py, ny, pz, nz, modelArrayBuffer] = await Promise.all([...cubePromises, this.downloadAsset]);
       const model3d = await slam.createGltfModel(modelArrayBuffer);

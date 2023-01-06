@@ -44,15 +44,15 @@ Page({
     wx.showLoading({ title: "初始化中...", mask: true });
 
     this.downloadAsset = requestMeshCompressionGltfFile(
-      "https://project.kivisense.com/tmp-assets/slam/ska.glb",
-      "https://project.kivisense.com/tmp-assets/slam/ska.fallback.bin"
+      "https://meta.kivisense.com/kivicube-slam-mp-plugin/demo-assets/model/ska/ska.glb",
+      "https://meta.kivisense.com/kivicube-slam-mp-plugin/demo-assets/model/ska/ska.fallback.bin"
     );
   },
 
   async ready({ detail: slam }) {
     this.slam = slam;
-    const modelArrayBuffer = await this.downloadAsset;
-    const model = await slam.createGltfModel(modelArrayBuffer);
+    const fileConfig = await this.downloadAsset;
+    const model = await slam.createGltfModel(fileConfig);
 
     try {
       slam.add(model, 0.4);

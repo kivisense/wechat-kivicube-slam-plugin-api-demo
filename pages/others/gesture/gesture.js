@@ -33,7 +33,7 @@ Page({
     wx.showLoading({ title: "初始化中...", mask: true });
 
     this.downloadAsset =  requestFile(
-      "https://kivicube-resource.kivisense.com/wechat-kivicube-slam-plugin-api-demo/rabbit.glb"
+      "https://meta.kivisense.com/kivicube-slam-mp-plugin/demo-assets/model/rabbit.glb"
     );
   },
 
@@ -114,7 +114,6 @@ Page({
 
     
     const options = Object.fromEntries(arr);
-    console.log(options);
     
     this.slam.setGesture(this.model3d, {
       ...options,

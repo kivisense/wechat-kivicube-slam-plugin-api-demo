@@ -15,19 +15,19 @@ Page({
 
     this.downloadAsset = Promise.all([
       requestFile(
-        "https://kivicube-resource.kivisense.com/wechat-kivicube-slam-plugin-api-demo/rabbit.glb"
+        "https://meta.kivisense.com/kivicube-slam-mp-plugin/demo-assets/model/rabbit.glb"
       ),
       downloadFile(
-        "https://kivicube-resource.kivisense.com/wechat-kivicube-slam-plugin-api-demo/slam.mp4"
+        "https://meta.kivisense.com/kivicube-slam-mp-plugin/demo-assets/video/slam.mp4"
       ),
       downloadFile(
-        "https://kivicube-resource.kivisense.com/wechat-kivicube-slam-plugin-api-demo/glow.mp4"
+        "https://meta.kivisense.com/kivicube-slam-mp-plugin/demo-assets/video/glow.mp4"
       ),
       requestFile(
-        "https://kivicube-resource.kivisense.com/wechat-kivicube-slam-plugin-api-demo/music-effect.png"
+        "https://meta.kivisense.com/kivicube-slam-mp-plugin/demo-assets/image/music-effect.png"
       ),
       requestFile(
-        "https://kivicube-resource.kivisense.com/wechat-kivicube-slam-plugin-api-demo/kivisense-logo.png"
+        "https://meta.kivisense.com/kivicube-slam-mp-plugin/demo-assets/image/kivisense-logo.png"
       ),
     ]);
   },

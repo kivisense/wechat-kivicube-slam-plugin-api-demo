@@ -9,7 +9,7 @@ Page({
     wx.showLoading({ title: "初始化中...", mask: true });
 
     this.downloadAsset = requestFile(
-      "https://kivicube-resource.kivisense.com/wechat-kivicube-slam-plugin-api-demo/kivisense-logo.png"
+      "https://meta.kivisense.com/kivicube-slam-mp-plugin/demo-assets/image/kivisense-logo.png"
     );
   },
 
