@@ -70,6 +70,8 @@
 
 #### 7、[简单判断模型是否在相机画面内](../../tree/master/pages/others/model-render/)
 
+#### 8、[加载量化(优化三角形/网格/材质/纹理/顶点/动画)后的模型](../../tree/master/pages/others/load-compressed-gltf/)
+
 ## 快速体验
 
 1. 使用git克隆此仓库至本地，可使用命令`git clone git@github.com:kivisense/wechat-kivicube-slam-plugin-api-demo.git`，或者点击右上角按钮Code -> Download ZIP下载代码。
