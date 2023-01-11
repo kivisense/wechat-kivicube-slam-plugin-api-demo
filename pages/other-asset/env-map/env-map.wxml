@@ -8,3 +8,10 @@
 <picker mode="selector" bindchange="envMapChange" value="{{0}}" range="{{envMapNameList}}">
   当前选择：{{envMapNameList[envMap]}}
 </picker>
+
+<view class="operate">
+  <label>
+    环境贴图强度强度：{{intensity}}
+    <slider min="0" max="5" step="0.1" value="{{intensity}}" bindchange="intensityChange"></slider>
+  </label>
+</view>

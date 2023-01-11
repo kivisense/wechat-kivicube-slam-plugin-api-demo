@@ -29,7 +29,8 @@
     "pages/others/simple-animation/simple-animation",
     "pages/others/model-render/model-render",
     "pages/others/gesture/gesture",
-    "pages/others/load-compressed-gltf/load-compressed-gltf"
+    "pages/others/load-compressed-gltf/load-compressed-gltf",
+    "pages/others/stand-check/stand-check"
   ],
   "plugins": {
     "kivicube-slam": {
