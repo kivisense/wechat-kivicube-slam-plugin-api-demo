@@ -45,4 +45,5 @@
   <navigator url="../others/cloudar/cloudar">6、云识别</navigator>
   <navigator url="../others/model-render/model-render">7、简单判断模型是否在相机画面内</navigator>
   <navigator url="../others/load-compressed-gltf/load-compressed-gltf">8、加载量化(优化三角形/网格/材质/纹理/顶点/动画)后的模型</navigator>
+  <navigator url="../others/stand-check/stand-check">9、判断相机画面中心位置对准的位置能否放置模型</navigator>
 </view>

@@ -4,6 +4,7 @@ Page({
   data: {
     license: getApp().globalData.license,
     envMap: 0,
+    intensity: 1,
     envMapNameList: ["HDR", "Panorama", "Cube"],
   },
 
@@ -56,7 +57,10 @@ Page({
       this.model = model;
       this.envMapList = [envMapHdr, envMapPano, envMapCube];
 
-      model.useEnvMap(this.envMapList[this.data.envMap]);
+      const currentEnvMap = this.envMapList[this.data.envMap];
+      currentEnvMap.envMapIntensity = this.data.intensity;
+
+      model.useEnvMap(currentEnvMap);
 
       slam.add(model, 0.5);
 
@@ -81,6 +85,18 @@ Page({
     }
   },
 
+  intensityChange({ detail }) {
+    const intensity = (+detail.value).toFixed(1);
+    this.setData({ intensity });
+
+    // 拿到当前的环境贴图对象
+    const currentEnvMap = this.envMapList[this.data.envMap];
+    // 设置环境贴图强度
+    currentEnvMap.envMapIntensity = intensity;
+    // 应用环境贴图
+    this.model.useEnvMap(currentEnvMap);
+  },
+
   error({ detail }) {
     wx.hideLoading();
     // 判定是否camera权限问题，是则向用户申请权限。
@@ -95,6 +111,11 @@ Page({
     const envMap = +detail.value;
     this.setData({ envMap });
 
-    this.model.useEnvMap(this.envMapList[envMap]);
+    // 拿到当前的环境贴图对象
+    const currentEnvMap = this.envMapList[envMap];
+    // 设置环境贴图强度
+    currentEnvMap.envMapIntensity = this.data.intensity;
+    // 应用环境贴图
+    this.model.useEnvMap(currentEnvMap);
   },
 });
