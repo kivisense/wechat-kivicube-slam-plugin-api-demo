@@ -53,7 +53,7 @@ Page({
         slam.defaultDirectionalLight.shadow.mapSize.height = 1024;
 
         if (slam.isGyroscope()) {
-          // 陀螺仪模式只能用这个方式创建阴影
+          // 陀螺仪模式建议用这个方式创建阴影
           slam.enableShadow(0.15);
         } else {
           // result.plane 是模型被放置到的平面对象，插件版本 >= 1.3.19 后支持

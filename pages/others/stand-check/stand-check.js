@@ -1,8 +1,8 @@
 import { errorHandler, showAuthModal, requestFile } from "../../../utils/utils";
 
-let timer = null;
 function throttle(fn, delay = 500) {
-  return () => {
+  let timer = null;
+  return function() {
     if (timer) return;
     timer = setTimeout(() => {
       fn.apply(this, arguments);
@@ -31,6 +31,7 @@ Page({
       const model3d = await slam.createGltfModel(modelArrayBuffer);
       this.model3d = model3d;
 
+      const invokeCheck = throttle(this.checkCameraAngle, 600);
       /**
        * 利用addPlaneIndicator的回调方法，来处理 v1 与 v2 模式下用户未对准平面的问题
        * **/
@@ -64,9 +65,7 @@ Page({
         // camera画面中心对准的位置有可用平面，指示器持续放置到该平面都放置成功的时候调用 **持续**调用
         onPlaneShowing: () => {
           if (this.data.version === "v1") {
-            throttle(() => {
-              this.checkCameraAngle();
-            }, 600)();
+            invokeCheck();
           }
         },
       });
