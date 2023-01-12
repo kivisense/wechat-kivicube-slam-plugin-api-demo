@@ -238,3 +238,8 @@ slam对象，拥有以下字段：
 | setGesture | Function | 设置手势作用的3D对象和功能 | [pages/others/gesture/](../../tree/master/pages/others/gesture/) |
 | dispatchTouchEvent | Function | 手动触发一个touch类事件 | [pages/others/penetrate-ui/](../../tree/master/pages/others/penetrate-ui/) |
 | takePhoto | Function | 拍照 | [pages/others/photo/](../../tree/master/pages/others/photo/) |
+| ~~enableShadow~~ | Function | 开启阴影 **[deprecated]** | [pages/other-asset/shadow/](../../tree/master/pages/other-asset/shadow/) |
+| ~~disableShadow~~ | Function | 关闭阴影 **[deprecated]** | [pages/other-asset/shadow/](../../tree/master/pages/other-asset/shadow/) |
+| createShadowPlane | Function | 创建一个阴影面片对象, 插件版本`>=1.3.19` | [pages/other-asset/shadow/](../../tree/master/pages/other-asset/shadow/) |
+| startShadow | Function | 开启阴影, 插件版本`>=1.3.19` | [pages/other-asset/shadow/](../../tree/master/pages/other-asset/shadow/) |
+| stopShadow | Function | 关闭阴影, 插件版本`>=1.3.19` | [pages/other-asset/shadow/](../../tree/master/pages/other-asset/shadow/) |
