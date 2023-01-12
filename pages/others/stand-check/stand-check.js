@@ -34,6 +34,15 @@ Page({
       const invokeCheck = throttle(this.checkCameraAngle, 600);
       /**
        * 利用addPlaneIndicator的回调方法，来处理 v1 与 v2 模式下用户未对准平面的问题
+       * 
+       * [v1的处理介绍]: 
+       * v1模式因为有一个巨大的平面，所以有着超高的放置成功率，但是一旦体验者将相机朝向天空，
+       * 模型就会被放置在很远的地方，导致模型不可见或者特别小。这个时候我们利用 onPlaneShowing 这个持续放置成功的回调，
+       * 来检测体验者相机的倾斜角度，以此来提醒用户让相机尽量倾斜向下体验。
+       * 
+       * [v2的处理介绍]:
+       * v2模式的处理相对简单，只需要知道模型放置的成功与否来判断，当前体验者相机朝向的位置是否有可用的平面，
+       * 这里利用 onPlaneShow 和 onPlaneHide 两个回调函数就能实现。
        * **/
       slam.addPlaneIndicator(model3d, {
         size: 0.5,
