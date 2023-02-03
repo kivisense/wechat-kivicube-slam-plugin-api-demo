@@ -74,6 +74,7 @@
 
 #### 9、[判断相机画面中心位置对准的位置能否放置模型](../../tree/master/pages/others/stand-check/)
 
+#### 10、[v2立即放置到可用平面](../../tree/master/pages/others/auto-stand-v2/)
 
 ## 快速体验
 

@@ -1,0 +1,18 @@
+<kivicube-slam
+  class="slam"
+  license="{{license}}"
+  version="v2"
+  bindready="ready"
+  binderror="error"
+/>
+
+<!-- 地面对准提示 -->
+<view class="plane-tip {{showPlaneTip ? 'visible' : ''}}">
+  <view class="scan-image">
+    <image src="https://meta.kivisense.com/kivicube-slam-mp-plugin/assets/scan-horizontal.apng" mode="aspectFit" />
+  </view>
+  <view class="scan-text">
+    请对准地面识别
+  </view>
+</view>
+
