@@ -1,0 +1,6 @@
+<view class="wrapper">
+    <view>
+        我只是一个平平无奇的测试页面
+    </view>
+    <button bindtap="back">点我返回把</button>
+</view>

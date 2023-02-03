@@ -3,6 +3,7 @@ import { errorHandler, showAuthModal, requestFile } from "../../../utils/utils";
 Page({
   data: {
     license: getApp().globalData.license,
+    isRender: true, // 是否渲染slam组件
   },
 
   onLoad() {
@@ -92,7 +93,7 @@ Page({
     }
   },
 
-  handleTap() {
+  handleClear() {
     const { slam } = this;
     // 获取组件中所有的3D对象
     const list = slam.getAllObject();
@@ -105,6 +106,28 @@ Page({
 
     // 清空并销毁组件中所有的3D对象和内容 (与以上的操作等效)
     // slam.clear();
+  },
+
+  /**
+   * 如果需要跳转到其他内存占用也比较高的页面, 建议进入后, 主动移除slam组件
+   * 如果需要跳转到的页面是个比较普通的展示页, 可用不用移除slam组件, 这样回到slam页时, 还能继续体验
+   * **/
+  handleNav() {
+    wx.navigateTo({
+      url: "/pages/test/test",
+      success: () => {
+        // 进入其他页面后, 主动移除slam组件, 组件被移除后会自动清除并销毁所有3d内容, 释放占用的内存
+        this.setData({isRender: false});
+      },
+    });
+  },
+
+  // 页面显示时, 重新渲染组件
+  onShow() {
+    if (this.slam) {
+      this.setData({ isRender: true });
+      wx.showLoading({ title: "重新初始化中...", mask: true });
+    }
   },
 
   onUnload() {

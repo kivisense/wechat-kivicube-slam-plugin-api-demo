@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/test/test",
     "pages/base/api/api",
     "pages/base/sample/sample",
     "pages/base/scene/scene",

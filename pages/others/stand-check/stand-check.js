@@ -101,12 +101,15 @@ Page({
     const cameraUp = camera.getWorldDirection();
 
     /**
+     * 注意，这里有一个极端情况：
+     * 如果在slam初始化的时候，体验者的手机相机是望向天空的一个状态，初始化后，不论手机怎么移动都无法获取相机朝向的正确向量值
      * 这个向量的 x,y,z 分别为 0,-1,0 的时候，体验者可能一开始就抬起相机望向了天空
      * **/
     const {x, y, z} = cameraUp;
     if(x === 0 && y === -1 && z === 0) {
       this.slam.removePlaneIndicator();
 
+      // 无法正确获取相机的向量值，开发者需要自行处理怎么让体验者重新加载页面，这里只做一个简单的返回。
       return wx.showModal({
         title: "提示",
         content: "slam v1模式下, 初始化的时候请尽量让手机相机倾斜向下",
