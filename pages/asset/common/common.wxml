@@ -13,4 +13,5 @@
   <button bind:tap="enableOnBeforeRender">开启onBeforeRender</button>
   <button bind:tap="disableOnBeforeRender">关闭onBeforeRender</button>
   <button bind:tap="lookAt">看向中心</button>
+  <button bind:tap="rabbitLookAtCameraY">始终面向相机位置</button>
 </view>

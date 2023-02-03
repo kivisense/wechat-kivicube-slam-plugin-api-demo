@@ -29,6 +29,7 @@ view {
   justify-content: space-evenly;
 }
 
-button {
+.operate button {
   margin-top: 5vw;
+  font-size: 14px;
 }

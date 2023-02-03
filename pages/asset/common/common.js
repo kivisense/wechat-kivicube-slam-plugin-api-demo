@@ -20,6 +20,7 @@ Page({
 
   async ready({ detail: slam }) {
     try {
+      this.slam = slam;
       const [rabbitArrayBuffer, reticleArrayBuffer] = await this.downloadAsset;
       const [rabbitModel, reticleModel] = await Promise.all([
         slam.createGltfModel(rabbitArrayBuffer),
@@ -146,6 +147,21 @@ Page({
   lookAt() {
     // 旋转模型，使模型的Z轴朝向某个3D坐标点。
     this.rabbit.lookAt(0, 0, 0);
+  },
+
+  rabbitLookAtCameraY() {
+    const { slam, rabbit } = this;
+    this.disableOnBeforeRender();
+    // 重置一下其他操作改变的模型值
+    rabbit.quaternion.x = 0;
+    rabbit.rotation.y = 0;
+    rabbit.position.y = 0;
+    
+    rabbit.onBeforeRender = () => {
+      const pos = slam.defaultCamera.position.clone();
+      // 让兔子模型朝向相机 (效果看起来仅是旋转模型的Y轴)
+      rabbit.lookAt(pos.x, 0, pos.z);
+    }
   },
 
   onUnload() {
