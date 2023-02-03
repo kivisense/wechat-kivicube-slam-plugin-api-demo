@@ -1,0 +1,14 @@
+.wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+button {
+  margin-top: 10vw;
+  color: #fff;
+  background-color: cadetblue;
+}

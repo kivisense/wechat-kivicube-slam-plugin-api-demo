@@ -1,4 +1,5 @@
 <kivicube-slam
+  wx:if="{{isRender}}"
   class="slam"
   license="{{license}}"
   version="v1"
@@ -6,4 +7,7 @@
   binderror="error"
 />
 
-<button class="clear-btn" bindtap="handleTap">移除并销毁对象</button>
+<view class="btn-wrapper">
+  <button class="clear-btn" bindtap="handleClear">移除并销毁对象</button>
+  <button class="page-btn" bindtap="handleNav">进入其他页面后移除组件</button>
+</view>

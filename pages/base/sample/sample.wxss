@@ -4,10 +4,15 @@
   height: 100vh;
 }
 
-.clear-btn {
+.btn-wrapper {
   position: absolute;
   left: 50%;
   bottom: 10vw;
   z-index: 2;
   transform: translateX(-50%);
+}
+
+.btn-wrapper button {
+  font-size: 14px;
+  margin-top: 10px;
 }
