@@ -32,7 +32,8 @@
     "pages/others/gesture/gesture",
     "pages/others/load-compressed-gltf/load-compressed-gltf",
     "pages/others/stand-check/stand-check",
-    "pages/others/auto-stand-v2/auto-stand-v2"
+    "pages/others/auto-stand-v2/auto-stand-v2",
+    "pages/others/face-camera/face-camera"
   ],
   "plugins": {
     "kivicube-slam": {
