@@ -27,6 +27,13 @@ Page({
   async takePhoto() {
     wx.showLoading({ title: "拍照中...", mask: true });
     try {
+      /**
+       * 拍照接口
+       * @param {Number} [figureWidth=renderWidth] - 指定照片的宽度。高度会依照渲染区域宽高比自动计算出来。默认为渲染宽度。
+       * @param {String} [fileType=jpg] - 文件格式，只支持jpg/png。默认为jpg
+       * @param {Number} [quality=0.9] - 照片质量，jpg时有效。默认为0.9
+       * @returns {Promise<photoPath>} - 照片文件临时地址
+       */
       const imagePath = await this.slam.takePhoto();
 
       wx.saveImageToPhotosAlbum({
