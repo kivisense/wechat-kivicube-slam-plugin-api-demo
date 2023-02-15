@@ -137,8 +137,16 @@ Page({
   },
 
   play() {
+    const animationName = this.getAnimationName();
+
+    // 模型只需要播放一个动画的情况下, 播一个新的动画时, 停掉上一次播放的动画, 不然会导致所有已播放动画的效果混合.
+    if (this.currentAnimationName !== animationName) {
+      this.model3d.stopAnimation(this.currentAnimationName);
+      this.currentAnimationName = animationName;
+    }
+
     this.model3d.playAnimation({
-      animationName: this.getAnimationName(),
+      animationName,
       loop: false, // 是否循环播放
       clampWhenFinished: true, // 是否播放完毕后，停留在最后一帧。
     });
