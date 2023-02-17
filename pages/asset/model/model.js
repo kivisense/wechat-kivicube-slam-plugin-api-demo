@@ -1,8 +1,5 @@
 import { errorHandler, showAuthModal, requestFile } from "../../../utils/utils";
 
-const rabbitGltfUrl =
-  "https://meta.kivisense.com/kivicube-slam-mp-plugin/demo-assets/model/rabbit/rabbit.gltf";
-
 Page({
   data: {
     license: getApp().globalData.license,
@@ -13,35 +10,18 @@ Page({
   onLoad() {
     wx.showLoading({ title: "初始化中...", mask: true });
 
-    this.downloadAsset = Promise.all([
-      requestFile(
-        "https://meta.kivisense.com/kivicube-slam-mp-plugin/demo-assets/model/robot.glb"
-      ),
-      requestFile(rabbitGltfUrl),
-    ]);
+    this.downloadAsset = requestFile("https://meta.kivisense.com/kivicube-slam-mp-plugin/demo-assets/model/robot.glb");
   },
 
   async ready({ detail: slam }) {
     try {
-      const [modelArrayBuffer, rabbitGltfArrayBuffer] = await this
-        .downloadAsset;
+      const modelArrayBuffer = await this.downloadAsset;
       /**
        * 加载glb格式的模型
        * @param {ArrayBuffer} glbFileArrayBuffer - glb文件内容
        * @returns {Promise<Model3D>}
        */
       const model3d = await slam.createGltfModel(modelArrayBuffer);
-
-      /**
-       * 加载gltf格式的模型
-       * @param {ArrayBuffer} gltfFileArrayBuffer - gltf文件内容
-       * @param {String} [gltfUrl=undefined] - 当第一个参数是gltf文件内容时，必须指定第二个参数。输入gltf文件的地址，插件才能计算出bin、贴图等文件的下载地址。
-       * @returns {Promise<Model3D>}
-       */
-      const rabbit = await slam.createGltfModel(
-        rabbitGltfArrayBuffer,
-        rabbitGltfUrl
-      );
 
       // 获取该模型拥有的所有动画名称列表
       const animationNames = model3d.getAnimationNames();
@@ -88,11 +68,6 @@ Page({
       console.log(model3d.getAnimationIsRunningNames());
       // 判定某个动画是否是循环播放。需要插件>=1.0.2。
       console.log(model3d.isAnimationLoop(animationNames[0]));
-
-      model3d.add(rabbit);
-      rabbit.scale.setScalar(50);
-      rabbit.position.z = 5;
-      rabbit.playAnimation({ loop: true });
 
       slam.add(model3d, 0.5);
 

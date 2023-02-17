@@ -22,7 +22,7 @@
 
 #### 4、[视频/透明视频](../../tree/master/pages/asset/video/)
 
-#### 5、[gltf/glb模型](../../tree/master/pages/asset/model/)
+#### 5、[glb模型](../../tree/master/pages/asset/model/)
 
 #### 6、[组合](../../tree/master/pages/asset/group/)
 

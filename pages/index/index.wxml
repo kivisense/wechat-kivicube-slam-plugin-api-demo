@@ -11,7 +11,7 @@
   <navigator url="../asset/image/image">2、图片</navigator>
   <navigator url="../asset/image-sprite/image-sprite">3、精灵图</navigator>
   <navigator url="../asset/video/video">4、视频/透明视频</navigator>
-  <navigator url="../asset/model/model">5、gltf/glb模型</navigator>
+  <navigator url="../asset/model/model">5、glb模型</navigator>
   <navigator url="../asset/group/group">6、组合容器</navigator>
   <navigator url="../asset/mask/mask">7、将素材指定为遮罩</navigator>
   <navigator url="../asset/indicator/indicator">8、平面指示器</navigator>
