@@ -14,13 +14,6 @@ Page({
     try {
       const arrayBuffer = await this.downloadAsset;
       const model3d = await slam.createVideo(arrayBuffer);
-
-      // 向下移动
-      model3d.position.x = 2;
-      // 向右移动
-      model3d.position.y = 1;
-      // 必须负值，才能看见。视作深度
-      model3d.position.z = -5;
       model3d.loop = true;
       model3d.videoContext.play();
 
