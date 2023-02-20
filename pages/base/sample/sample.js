@@ -74,7 +74,7 @@ Page({
         console.log("当前是否处于追踪状态：", slam.isTracking());
         console.log("当前是否为陀螺仪追踪：", slam.isGyroscope());
         console.log("当前slam版本是否为v2：", slam.isSlamV2());
-      }, 3000)
+      }, 3000);
 
       wx.hideLoading();
     } catch (e) {
