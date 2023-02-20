@@ -27,19 +27,35 @@ Page({
       this.slam = slam;
       const modelArrayBuffer = await this.downloadAsset;
       const model3d = await slam.createGltfModel(modelArrayBuffer);
+      const intensity = 0.15;
 
       slam.add(model3d, 0.5);
 
       // 开启slam平面追踪
       await slam.start();
 
+      /**
+       * v2模式下, 3d对象站立在新的平面上后, 需要在新的平面上新建对应的阴影片
+       * (由于v2模式下可能存在多个平面, 所以每次放置成功后, 都要确保当前模型站立的平面有可用的阴影片)
+       * 
+       * v1模式和陀螺仪模式只有一个平面, 不用做这个操作
+       * **/
+      slam.setGesture(model3d, {
+        clickResult: (result) => {
+          if (result && slam.isSlamV2()) {
+            this.setShadowPlane(result.plane, intensity);
+          }
+        },
+      });
+
       const { windowWidth, windowHeight } = wx.getSystemInfoSync();
       const result = slam.standOnThePlane(
         model3d,
         Math.round(windowWidth / 2),
         Math.round(windowHeight / 2),
-        true
+        true,
       );
+
       console.log("standOnThePlane result", result);
 
       model3d.playAnimation({ loop: true });
@@ -54,16 +70,17 @@ Page({
 
         if (slam.isGyroscope()) {
           // 陀螺仪模式建议用这个方式创建阴影
-          slam.enableShadow(0.15);
+          slam.enableShadow(intensity);
         } else {
           // result.plane 是模型被放置到的平面对象，插件版本 >= 1.3.19 后支持
-          this.setShadowPlane(result.plane, 0.15);
+          this.setShadowPlane(result.plane, intensity);
         }
       }
       // ================== 以上代码仅供插件版本 >= 1.3.19 使用 ==========================
 
 
-      // 插件版本 < 1.3.19 只能这样创建阴影
+      // ================== 插件版本 < 1.3.19 请按以下方式创建阴影  ==========================
+
       /**
        * 开启阴影功能，同时设置阴影强度。同时模型也需要开启阴影投射属性。
        * 开启后，后续也可调用此方法来修改阴影强度。
@@ -74,6 +91,8 @@ Page({
       // 禁用阴影功能。
       // slam.disableShadow();
 
+      // ================== 插件版本 < 1.3.19 请按以上方式创建阴影  ==========================
+
       /**
        * 开启模型投射阴影属性。
        * @param {Boolean} cast - 是否投射。true为开启投射，false为关闭投射。
@@ -82,6 +101,10 @@ Page({
       model3d.setCastShadow(true);
 
       wx.hideLoading();
+
+      console.log("当前是否为陀螺仪追踪：", slam.isGyroscope());
+      console.log("当前slam版本是否为v2：", slam.isSlamV2());
+      console.log("当前slam版本是否为v1：", slam.isSlamV1());
     } catch (e) {
       wx.hideLoading();
       errorHandler(e);
@@ -112,15 +135,8 @@ Page({
     // 创建阴影面片后，开启阴影投射
     slam.startShadow();
 
-    this.timer = setTimeout(() => {
-      // 关闭阴影投射
-      slam.stopShadow();
-
-      wx.showToast({
-        title: "阴影投射已关闭",
-        icon: "none"
-      });
-    }, 4000);
+    // 关闭阴影投射
+    // slam.stopShadow();
 
     // 更新阴影面片的矩阵信息
     updateMatrix(shadowPlane, plane);
@@ -152,7 +168,4 @@ Page({
     }
   },
 
-  onUnload() {
-    clearTimeout(this.timer);
-  },
 });
