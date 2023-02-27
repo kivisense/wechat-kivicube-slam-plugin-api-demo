@@ -3,7 +3,7 @@ import { errorHandler, showAuthModal, requestFile } from "../../../utils/utils";
 Page({
   data: {
     license: getApp().globalData.license,
-    envMap: 0,
+    envMapIndex: 0,
     intensity: 1,
     envMapNameList: ["HDR", "Panorama", "Cube"],
   },
@@ -57,10 +57,11 @@ Page({
       this.model = model;
       this.envMapList = [envMapHdr, envMapPano, envMapCube];
 
-      const currentEnvMap = this.envMapList[this.data.envMap];
+      const currentEnvMap = this.envMapList[this.data.envMapIndex];
       currentEnvMap.envMapIntensity = this.data.intensity;
 
       model.useEnvMap(currentEnvMap);
+      this.currentEnvMap = currentEnvMap;
 
       slam.add(model, 0.5);
 
@@ -90,7 +91,7 @@ Page({
     this.setData({ intensity });
 
     // 拿到当前的环境贴图对象
-    const currentEnvMap = this.envMapList[this.data.envMap];
+    const currentEnvMap = this.envMapList[this.data.envMapIndex];
     // 设置环境贴图强度
     currentEnvMap.envMapIntensity = intensity;
     // 应用环境贴图
@@ -117,5 +118,15 @@ Page({
     currentEnvMap.envMapIntensity = this.data.intensity;
     // 应用环境贴图
     this.model.useEnvMap(currentEnvMap);
+    this.currentEnvMap = currentEnvMap;
+  },
+
+  // 去掉应用的环境贴图并销毁
+  clear() {
+    // 模型去掉环境贴图的应用
+    this.model.useEnvMap(null);
+    // 销毁环境贴图
+    this.currentEnvMap.destroy();
+    this.currentEnvMap = null;
   },
 });
