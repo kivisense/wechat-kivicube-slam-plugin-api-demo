@@ -109,11 +109,11 @@ Page({
   },
 
   envMapChange({ detail }) {
-    const envMap = +detail.value;
-    this.setData({ envMap });
+    const envMapIndex = +detail.value;
+    this.setData({ envMapIndex });
 
     // 拿到当前的环境贴图对象
-    const currentEnvMap = this.envMapList[envMap];
+    const currentEnvMap = this.envMapList[envMapIndex];
     // 设置环境贴图强度
     currentEnvMap.envMapIntensity = this.data.intensity;
     // 应用环境贴图
@@ -128,5 +128,7 @@ Page({
     // 销毁环境贴图
     this.currentEnvMap.destroy();
     this.currentEnvMap = null;
+
+    this.setData({ envMapIndex: -1 });
   },
 });

@@ -72,7 +72,7 @@
 
 #### 8、[加载量化(优化三角形/网格/材质/纹理/顶点/动画)后的模型](../../tree/master/pages/others/load-compressed-gltf/)
 
-#### 9、[判断相机画面中心位置对准的位置能否放置模型](../../tree/master/pages/others/stand-check/)
+#### 9、[利用平面指示器判断相机画面中心位置对准的位置能否放置模型](../../tree/master/pages/others/stand-check/)
 
 #### 10、[v2立即放置到可用平面](../../tree/master/pages/others/auto-stand-v2/)
 
