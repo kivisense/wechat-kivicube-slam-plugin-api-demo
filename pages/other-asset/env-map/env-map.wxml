@@ -13,5 +13,5 @@
   <picker mode="selector" bindchange="envMapChange" value="{{0}}" range="{{envMapNameList}}">
     当前选择：{{envMapNameList[envMapIndex]}}
   </picker>
-  <button bindtap="clear">移除并销毁应用的环境贴图</button>
+  <button bindtap="removeEnvMap">移除并销毁应用的环境贴图</button>
 </view>

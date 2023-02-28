@@ -5,7 +5,7 @@ Page({
     license: getApp().globalData.license,
     envMapIndex: 0,
     intensity: 1,
-    envMapNameList: ["HDR", "Panorama", "Cube"],
+    envMapNameList: ["HDR", "Panorama", "Image", "Cube"],
   },
 
   onLoad() {
@@ -21,6 +21,9 @@ Page({
       requestFile(
         "https://meta.kivisense.com/kivicube-slam-mp-plugin/demo-assets/image/360.jpg"
       ),
+      requestFile(
+        "https://meta.kivisense.com/kivicube-slam-mp-plugin/demo-assets/image/pre-hdr.png"
+      ),
       Promise.all(
         ["nx", "px", "ny", "py", "nz", "pz"].map((name) =>
           requestFile(
@@ -33,29 +36,25 @@ Page({
 
   async ready({ detail: slam }) {
     try {
-      const [modelArrayBuffer, hdrArrayBuffer, panoramaArrayBuffer, cubeMap] = await this.downloadAsset;
-      const [model, envMapHdr, envMapPano, envMapCube] = await Promise.all([
+      const [modelArrayBuffer, hdrArrayBuffer, panoramaArrayBuffer, imageArrayBuffer, cubeMap] = await this.downloadAsset;
+      // 创建环境贴图对象
+      const [model, envMapHdr, envMapPano, envMapImage, envMapCube] = await Promise.all([
         slam.createGltfModel(modelArrayBuffer),
-        slam.createEnvMapByHDR(hdrArrayBuffer),
-        slam.createEnvMapByPanorama(panoramaArrayBuffer, "jpg"),
-        slam.createEnvMapByCubeMap({
+        slam.createEnvMapByHDR(hdrArrayBuffer), // 创建一个基于HDR文件的环境贴图对象
+        slam.createEnvMapByPanorama(panoramaArrayBuffer, "jpg"), // 创建一个基于全景图的环境贴图对象
+        slam.createEnvMapByImage(imageArrayBuffer), // 创建一个基于图片的环境贴图对象
+        slam.createEnvMapByCubeMap({ // 创建一个基于6张图组成天空盒的环境贴图对象
           nx: cubeMap[0],
-          "nx-type": "jpg",
           px: cubeMap[1],
-          "px-type": "jpg",
           ny: cubeMap[2],
-          "ny-type": "jpg",
           py: cubeMap[3],
-          "py-type": "jpg",
           nz: cubeMap[4],
-          "nz-type": "jpg",
           pz: cubeMap[5],
-          "pz-type": "jpg",
         }),
       ]);
 
       this.model = model;
-      this.envMapList = [envMapHdr, envMapPano, envMapCube];
+      this.envMapList = [envMapHdr, envMapPano, envMapImage, envMapCube];
 
       const currentEnvMap = this.envMapList[this.data.envMapIndex];
       currentEnvMap.envMapIntensity = this.data.intensity;
@@ -122,13 +121,21 @@ Page({
   },
 
   // 去掉应用的环境贴图并销毁
-  clear() {
+  removeEnvMap() {
+    // tips: 环境贴图被移除并销毁后，如果需要重新应用到模型上，请重新创建环境贴图对象。
+    if (!this.currentEnvMap) return;
+    
     // 模型去掉环境贴图的应用
     this.model.useEnvMap(null);
     // 销毁环境贴图
     this.currentEnvMap.destroy();
     this.currentEnvMap = null;
 
-    this.setData({ envMapIndex: -1 });
+    // 移除并销毁环境贴图后，去掉picker组件的选项
+    const envMapNameList = [...this.data.envMapNameList];
+    envMapNameList.splice(this.data.envMapIndex, 1);
+    this.envMapList.splice(this.data.envMapIndex, 1);
+
+    this.setData({ envMapNameList, envMapIndex: -1 });
   },
 });
