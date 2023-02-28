@@ -72,7 +72,7 @@
 
 #### 8、[加载量化(优化三角形/网格/材质/纹理/顶点/动画)后的模型](../../tree/master/pages/others/load-compressed-gltf/)
 
-#### 9、[判断相机画面中心位置对准的位置能否放置模型](../../tree/master/pages/others/stand-check/)
+#### 9、[利用平面指示器判断相机画面中心位置对准的位置能否放置模型](../../tree/master/pages/others/stand-check/)
 
 #### 10、[v2立即放置到可用平面](../../tree/master/pages/others/auto-stand-v2/)
 
@@ -81,8 +81,8 @@
 ## 快速体验
 
 1. 使用git克隆此仓库至本地，可使用命令`git clone git@github.com:kivisense/wechat-kivicube-slam-plugin-api-demo.git`，或者点击右上角按钮Code -> Download ZIP下载代码。
-2. 使用[微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/stable.html)导入本项目。**重要：在“导入项目”时，必须将AppID修改为，被我们license授权过的appid。**
-3. 打开app.js文件，替换为我们给予你的license。
+2. 使用[微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/stable.html)导入本项目，并将appid修改为自己的appid。
+3. 打开app.js文件，替换为我们给予你的license，用来去除水印。
 4. 服务器域名配置。有两种方案，一是直接在手机上打开小程序的“开发调试”模式，参考[vConsole](https://developers.weixin.qq.com/miniprogram/dev/framework/usability/vConsole.html)；二是在小程序后台，将域名“ https://meta.kivisense.com ”配置到request和downloadFile两项中，参考[微信官方文档 - 网络](https://developers.weixin.qq.com/miniprogram/dev/framework/ability/network.html)。推荐第二种。
 5. 之后，可在微信开发者工具上，点击“预览”按钮，用微信扫描打开体验。【Slam功能不支持在开发者工具上运行，也不支持真机调试。】
 

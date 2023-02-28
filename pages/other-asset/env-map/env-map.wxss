@@ -4,15 +4,6 @@
   height: 100vh;
 }
 
-picker {
-  position: absolute;
-  left: 0;
-  bottom: 10vh;
-  width: 100%;
-  z-index: 2;
-  text-align: center;
-}
-
 .operate {
   position: absolute;
   left: 10vw;
@@ -28,10 +19,16 @@ picker {
 }
 
 .operate label,
-.operate slider{
+.operate slider {
   width: 100%;
 }
 
 .operate slider {
   margin: 10px 0 10px;
+}
+
+.operate button {
+  width: 100%;
+  margin-top: 4vw;
+  font-size: 14px;
 }

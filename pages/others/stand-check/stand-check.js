@@ -13,23 +13,33 @@ function throttle(fn, delay = 500) {
 
 Page({
   data: {
-    version: "v1", // 可自行切换v1 v2来体验不同模式下的效果。
+    version: "v2", // 可自行切换 v1 v2 来体验不同模式下的效果
   },
 
   onLoad() {
     wx.showLoading({ title: "初始化中...", mask: true });
 
-    this.downloadAsset = requestFile(
-      "https://meta.kivisense.com/kivicube-slam-mp-plugin/demo-assets/model/rabbit.glb"
-    );
+    this.downloadAsset = Promise.all([
+        requestFile("https://meta.kivisense.com/kivicube-slam-mp-plugin/demo-assets/model/rabbit.glb"),
+        requestFile("https://meta.kivisense.com/kivicube-slam-mp-plugin/demo-assets/model/reticle.glb"),
+    ]);
   },
 
   async ready({ detail: slam }) {
-    this.slam = slam;
     try {
-      const modelArrayBuffer = await this.downloadAsset;
-      const model3d = await slam.createGltfModel(modelArrayBuffer);
+      const [modelArrayBuffer, reticleArrayBuffer] = await this.downloadAsset;
+      const [model3d, reticle] = await Promise.all([
+        slam.createGltfModel(modelArrayBuffer),
+        slam.createGltfModel(reticleArrayBuffer),
+      ]);
+
+      // 先隐藏模型，再加入场景
+      model3d.visible = false;
+      slam.add(model3d, 0.5);
       this.model3d = model3d;
+      this.slam = slam;
+      // slam组件是否是v2
+      this.isV2 = slam.isSlamV2();
 
       const invokeCheck = throttle(this.checkCameraAngle, 600);
       /**
@@ -44,13 +54,13 @@ Page({
        * v2模式的处理相对简单，只需要知道模型放置的成功与否来判断，当前体验者相机朝向的位置是否有可用的平面，
        * 这里利用 onPlaneShow 和 onPlaneHide 两个回调函数就能实现。
        * **/
-      slam.addPlaneIndicator(model3d, {
-        size: 0.5,
+      slam.addPlaneIndicator(reticle, {
+        size: 0.4,
         // camera画面中心对准的位置有可用平面，指示器初次放置到该平面的时候调用
         onPlaneShow: () => {
           console.log("onPlaneShow");
 
-          if (this.data.version === "v2") {
+          if (this.isV2) {
             clearTimeout(this.timer);
             wx.hideToast();
           }
@@ -60,7 +70,7 @@ Page({
         onPlaneHide: () => {
           console.log("onPlaneHide");
 
-          if (this.data.version === "v2") {
+          if (this.isV2) {
             clearTimeout(this.timer);
             this.timer = setTimeout(() => {
               wx.showToast({
@@ -73,7 +83,7 @@ Page({
         },
         // camera画面中心对准的位置有可用平面，指示器持续放置到该平面都放置成功的时候调用 **持续**调用
         onPlaneShowing: () => {
-          if (this.data.version === "v1") {
+          if (!this.isV2) {
             invokeCheck();
           }
         },
@@ -81,10 +91,6 @@ Page({
 
       // 开启slam平面追踪
       await slam.start();
-
-      model3d.playAnimation({
-        loop: true
-      });
 
       wx.hideLoading();
     } catch (e) {
@@ -133,22 +139,34 @@ Page({
     }
   },
 
-  slamTap() {
+  // slam组件被点击
+  slamTap({ touches, target }) {
     const { slam, model3d } = this;
-    if (!model3d.visible) return;
-    
-    const { windowWidth, windowHeight } = wx.getSystemInfoSync();
-    const res = slam.standOnThePlane(
-      model3d,
-      Math.round(windowWidth / 2),
-      Math.round(windowHeight / 2),
-      true,
-    );
+    if (Array.isArray(touches) && touches.length > 0) {
+      const { offsetLeft, offsetTop } = target;
+      const { pageX, pageY } = touches[0];
+      const posX = pageX - offsetLeft;
+      const posY = pageY - offsetTop;
 
-    if (res) {}
-    console.log("stand result：", res);
-    slam.removePlaneIndicator();
-    slam.add(model3d);
+      let flag;
+      if (model3d.visible) {
+        // 模型已经显示，传入用户在kivicube-slam组件上点击到的坐标点
+        flag = slam.standOnThePlane(model3d, posX, posY, true);
+      } else {
+        const { windowWidth, windowHeight } = wx.getSystemInfoSync();
+        // 模型未显示，传入屏幕中心坐标点
+        flag = slam.standOnThePlane(model3d, Math.round(windowWidth / 2), Math.round(windowHeight / 2), true);
+      }
+
+      if (flag) {
+        if (!model3d.visible) {
+          slam.removePlaneIndicator();
+          model3d.visible = true;
+        }
+      } else {
+        wx.showToast({ title: "请对准平面放置", icon: "none" });
+      }
+    }
   },
 
   error({ detail }) {
