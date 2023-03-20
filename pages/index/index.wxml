@@ -48,4 +48,5 @@
   <navigator url="../others/stand-check/stand-check">9、利用平面指示器判断相机画面中心位置对准的位置能否放置模型</navigator>
   <navigator url="../others/auto-stand-v2/auto-stand-v2">10、v2立即放置到可用平面</navigator>
   <navigator url="../others/face-camera/face-camera">11、让模型朝向相机方位</navigator>
+  <navigator url="../others/directional-light/directional-light">12、默认平行光的调整</navigator>
 </view>
