@@ -114,6 +114,7 @@ Page({
       return vec3.applyMatrix4( this.matrixWorld );
     }
     
+    this.slam.updateMatrixWorld(model);
     defaultDirectionalLight.position.copy(localToWorld.call(model, position));
     defaultDirectionalLight.target.position.copy(model.position);
 
