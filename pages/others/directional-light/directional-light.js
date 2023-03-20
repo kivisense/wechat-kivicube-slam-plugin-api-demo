@@ -35,7 +35,8 @@ Page({
       });
 
     //   this.setupDirectional(this.data.vertical, this.data.horizontal);
-      slam.createDirectionalLightHelper(defaultDirectionalLight, 1)
+      const helper = slam.createDirectionalLightHelper(defaultDirectionalLight, 1)
+      this.helper = helper;
 
       slam.add(model, 0.5);
 
@@ -115,5 +116,7 @@ Page({
     
     defaultDirectionalLight.position.copy(localToWorld.call(model, position));
     defaultDirectionalLight.target.position.copy(model.position);
+
+    this.helper.update();
   },
 });
