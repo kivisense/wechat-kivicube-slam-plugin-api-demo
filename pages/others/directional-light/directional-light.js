@@ -4,8 +4,8 @@ Page({
   data: {
     license: getApp().globalData.license,
     directionalIntensity: 0,
-    horizontal: 20,
-    vertical: 20,
+    horizontal: 0,
+    vertical: 0,
   },
 
   onLoad() {
@@ -33,10 +33,6 @@ Page({
       this.setData({
         directionalIntensity: defaultDirectionalLight.intensity,
       });
-
-    //   this.setupDirectional(this.data.vertical, this.data.horizontal);
-      const helper = slam.createDirectionalLightHelper(defaultDirectionalLight, 1)
-      this.helper = helper;
 
       slam.add(model, 0.5);
 
@@ -114,10 +110,7 @@ Page({
       return vec3.applyMatrix4( this.matrixWorld );
     }
     
-    this.slam.updateMatrixWorld(model);
     defaultDirectionalLight.position.copy(localToWorld.call(model, position));
     defaultDirectionalLight.target.position.copy(model.position);
-
-    this.helper.update();
   },
 });
