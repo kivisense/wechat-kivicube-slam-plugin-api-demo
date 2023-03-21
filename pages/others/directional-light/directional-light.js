@@ -97,20 +97,16 @@ Page({
     const axisY = directionalPosition.clone().set(0, 1, 0);
 
     const degToRad = (degrees) => {
-        return degrees * (Math.PI / 180);
+      return degrees * (Math.PI / 180);
     }
 
     directionalPosition.applyAxisAngle(axisX, degToRad(+vertical));
     directionalPosition.applyAxisAngle(axisY, degToRad(+horizontal));
     
     const position = directionalPosition.clone();
-    const model = this.model;
+    const worldPosition = position.applyMatrix4(this.model.matrixWorld);
 
-    function localToWorld (vec3) {
-      return vec3.applyMatrix4( this.matrixWorld );
-    }
-    
-    defaultDirectionalLight.position.copy(localToWorld.call(model, position));
-    defaultDirectionalLight.target.position.copy(model.position);
+    defaultDirectionalLight.position.copy(worldPosition);
+    defaultDirectionalLight.target.position.copy(this.model.position);
   },
 });
