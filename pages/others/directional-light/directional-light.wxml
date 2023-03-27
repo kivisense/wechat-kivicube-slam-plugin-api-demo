@@ -1,6 +1,7 @@
 <kivicube-slam
   class="slam"
   license="{{license}}"
+  version="{{version}}"
   bindready="ready"
   binderror="error"
 />
