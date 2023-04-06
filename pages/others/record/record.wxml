@@ -1,6 +1,7 @@
 <kivicube-slam
   class="slam"
   version="v2"
+  license="{{license}}"
   downgrade="{{true}}"
   bindready="ready"
   binderror="error"
@@ -10,6 +11,6 @@
   <view class="time">
     {{ recorderStatus }} | {{ leftTime }}s
   </view>
-  <button bindtap="startRecord" disabled="{{recordDisable}}">开始录制</button>
-  <button bindtap="stopRecord">结束录制</button>
+  <button bindtap="startRecord" disabled="{{startDisable}}">开始录制</button>
+  <button bindtap="stopRecord" disabled="{{stopDisable}}">结束录制</button>
 </view>

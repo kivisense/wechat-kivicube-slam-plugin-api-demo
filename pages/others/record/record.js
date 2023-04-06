@@ -2,7 +2,9 @@ import { requestFile } from "../../../utils/utils";
 
 Page({
   data: {
-    recordDisable: false,
+    license: getApp().globalData.license,
+    startDisable: false,
+    stopDisable: false,
     autoDownload: true,
     recorderStatus: "初始状态",
     leftTime: 0
@@ -69,33 +71,62 @@ Page({
   },
 
   async startRecord() {
-    this.setData({ recordDisable: true });
-    const autoDownload = this.data.autoDownload;
+    this.setData({ startDisable: true });
 
-    // 实例化视频录制对象
-    this.recorder = this.slam.createRecorder({
-      canvasConfig: {
-        // 分辨率倍数
-        recordDpr: 2,
-        // 最大宽度分辨率, 默认和上限值都是1080
-        // maxWidth: 300
-      },
-      recorderConfig: {
-        // 视频比特率（kbps），最小值 600，最大值 3000
-        videoBitsPerSecond: 3000,
-        // 视频 fps, 默认10
-        // fps:10,
-        // 视频关键帧间隔, 默认12
-        // gop:12
-      },
-      options: {
-        // 是否自动将录制好的视频下载为本地文件路径 默认为true
-        autoDownload,
-        // 录制时长, 如果调用了stop方法，录制会提前结束
-        duration: 6 * 1000,
-        requestBaseUrl: "https://192.168.0.13:5321/api/video"
-      },
+    if (!this.recorder) {
+      this.initRecorder();
+    }
+    
+    console.log("--- start ---");
+    const localPath = await this.recorder.start();
+    console.log("--- end ---");
+
+    this.setData({ startDisable: false, stopDisable: false });
+
+    wx.saveVideoToPhotosAlbum({
+      filePath: localPath,
     });
+  },
+
+  initRecorder() {
+    try {
+      const autoDownload = this.data.autoDownload;
+      // 实例化视频录制对象
+      this.recorder = this.slam.createRecorder({
+        canvasConfig: {
+          // 分辨率倍数
+          recordDpr: 2,
+          // 最大宽度分辨率, 默认和上限值都是1080
+          // maxWidth: 300
+        },
+        recorderConfig: {
+          // 视频比特率（kbps），最小值 600，最大值 3000
+          videoBitsPerSecond: 3000,
+          // 视频 fps, 默认10 【？】，仅视频录制时生效，视频录制处理完后都是30帧
+          // fps:10,
+          // 视频关键帧间隔, 默认12 【？】
+          // gop:12
+        },
+        options: {
+          // pid: "kivicube-mp-plugin", 【未暴露的参数，项目id】
+          // secret: "b1a72f06a24d5c8d7267ae6a1cfbe311", 【未暴露的参数, 授权码】
+          // autoProcess: true, 【未暴露的参数，是否使用服务端处理视频，默认启用】
+
+          // 是否自动将录制好的视频下载为本地文件路径 默认为true
+          autoDownload,
+          // 录制时长, 如果调用了stop方法，录制会提前结束
+          duration: 15 * 1000,
+        },
+      });
+    } catch (err) {
+      console.log(err);
+      wx.showToast({
+        title: err.message,
+        icon: "none"
+      });
+
+      this.setData({ startDisable: false });
+    }
 
     this.enableOnBeforeRender();
 
@@ -123,16 +154,6 @@ Page({
 
     this.recorder.on("error", (error) => {
       console.log("recorder log: error", error);
-    });
-
-    console.log("--- start ---");
-    const localPath = await this.recorder.start();
-    console.log("--- end ---");
-
-    this.setData({ recordDisable: false });
-
-    wx.saveVideoToPhotosAlbum({
-      filePath: localPath,
     });
   },
 
@@ -168,6 +189,7 @@ Page({
 
   stopRecord() {
     this.recorder.stop();
+    this.setData({ stopDisable: true });
   },
 
   onUnload() {

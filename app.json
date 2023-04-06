@@ -39,7 +39,7 @@
   "plugins": {
     "kivicube-slam": {
       "provider": "wx12ad8a61f049ea02",
-      "version": "dev-d3dc6b8e32fe68168c8316a8152b8f0b"
+      "version": "dev-95c253d8ce049040b7fb28b97a9f1e62"
     }
   },
   "window": {
