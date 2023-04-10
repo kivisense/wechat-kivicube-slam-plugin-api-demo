@@ -18,8 +18,6 @@ Page({
     this.downloadAsset = requestFile(
       "https://meta.kivisense.com/kivicube-slam-mp-plugin/demo-assets/model/rabbit.glb"
     );
-
-    this.shadowPlanes = {};
   },
 
   async ready({ detail: slam }) {
@@ -76,6 +74,7 @@ Page({
       this.initRecorder();
     }
     
+    this.enableOnBeforeRender();
     console.log("--- start ---");
     const localPath = await this.recorder.start();
     console.log("--- end ---");
@@ -87,17 +86,18 @@ Page({
     });
   },
 
+  /**
+   * 初始化AR录制器
+   * AR内容录制功能开通请参考：
+   * https://www.yuque.com/kivicube/slam/slam-develop#pUA07
+   * **/
   initRecorder() {
     try {
       // 实例化视频录制对象
       this.recorder = this.slam.createRecorder({
-        canvasConfig: {
-          // 分辨率倍数
-          recordDpr: 3,
-        },
         options: {
-          // 录制时长, 如果调用了stop方法，录制会提前结束
-          duration: 15 * 1000,
+          // 录制时长毫秒，如果调用了stop方法，录制会提前结束
+          duration: 10 * 1000,
         },
       });
     } catch (err) {
@@ -110,24 +110,20 @@ Page({
       this.setData({ startDisable: false });
     }
 
-    this.enableOnBeforeRender();
-
     this.recorder.on("start", () => {
       console.log("recorder log:  start 开始录制");
     });
 
+    this.recorder.on("pause", () => {
+      console.log("recorder log:  pause 暂停录制");
+    });
+
+    this.recorder.on("resume", () => {
+      console.log("recorder log:  resume 恢复录制");
+    });
+
     this.recorder.on("stop", () => {
       console.log("recorder log:  stop 停止录制");
-    });
-
-    // 视频录制完成后的链接地址
-    this.recorder.on("process-end", (remoteUrl) => {
-      console.log("recorder log:  process-end 视频处理完成", remoteUrl);
-    });
-
-    // 将视频下载结束，localPath为本地文件的文件路径
-    this.recorder.on("download-end", (localPath) => {
-      console.log("recorder log:  download-end 视频下载完成", localPath);
     });
 
     this.recorder.on("end", (path) => {
@@ -175,7 +171,6 @@ Page({
   },
 
   onUnload() {
-    this.recorder.stop();
     this.recorder.destroy();
     this.disableOnBeforeRender();
   },

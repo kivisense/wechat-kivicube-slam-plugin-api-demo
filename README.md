@@ -78,6 +78,8 @@
 
 #### 11、[让模型朝向相机方位](../../tree/master/pages/others/face-camera/)
 
+#### 12、[AR内容录制](../../tree/master/pages/others/record/)
+
 ## 快速体验
 
 1. 使用git克隆此仓库至本地，可使用命令`git clone git@github.com:kivisense/wechat-kivicube-slam-plugin-api-demo.git`，或者点击右上角按钮Code -> Download ZIP下载代码。
@@ -253,3 +255,4 @@ slam对象，拥有以下字段：
 | createShadowPlane | Function | 创建一个阴影面片对象, 插件版本`>=1.3.19` | [pages/other-asset/shadow/](../../tree/master/pages/other-asset/shadow/) |
 | startShadow | Function | 开启阴影, 插件版本`>=1.3.19` | [pages/other-asset/shadow/](../../tree/master/pages/other-asset/shadow/) |
 | stopShadow | Function | 关闭阴影, 插件版本`>=1.3.19` | [pages/other-asset/shadow/](../../tree/master/pages/other-asset/shadow/) |
+| createRecorder | Function | 创建AR内容录制器, 插件版本`>=1.4.0` | [pages/others/record/](../../tree/master/pages/others/record/) |
