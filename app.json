@@ -33,12 +33,13 @@
     "pages/others/load-compressed-gltf/load-compressed-gltf",
     "pages/others/stand-check/stand-check",
     "pages/others/auto-stand-v2/auto-stand-v2",
-    "pages/others/face-camera/face-camera"
+    "pages/others/face-camera/face-camera",
+    "pages/others/record/record"
   ],
   "plugins": {
     "kivicube-slam": {
       "provider": "wx12ad8a61f049ea02",
-      "version": "1.3.22"
+      "version": "1.4.0"
     }
   },
   "window": {

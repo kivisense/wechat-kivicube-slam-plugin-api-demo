@@ -1,0 +1,31 @@
+page {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.slam {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+.btn-group {
+  position: absolute;
+  z-index: 2;
+  bottom: 10vw;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.btn-group button {
+  font-size: 14px;
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.time {
+  padding: 10px 0;
+  color: #fff;
+  text-shadow: 0px 1px 2px #ccc;
+}
