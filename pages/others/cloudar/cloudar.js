@@ -45,6 +45,8 @@ Page({
         this.setModel(windowWidth / 2, windowHeight / 2);
       }, 10000);
 
+      this._timer = timer;
+
       /**
        * 开始去云识别图片。
        * @param {String} collectionId - 合辑id。获取方式，参考：https://mp.weixin.qq.com/wxopen/plugindevdoc?appid=wx3bbab3920eabccb2&token=&lang=zh_CN#-id-
@@ -97,4 +99,9 @@ Page({
       wx.showToast({ title: "放置模型失败，请对准平面", icon: "none" });
     }
   },
+
+  // 清除定时器
+  onUnload() {
+    clearTimeout(this._timer);
+  }
 });
