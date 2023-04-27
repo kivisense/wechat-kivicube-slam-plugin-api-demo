@@ -58,7 +58,7 @@ Page({
       slam.add(model, 0.4);
       await slam.start();
 
-      const { windowHeight, windowWidth } = wx.getWindowInfo();
+      const { windowHeight, windowWidth } = wx.getSystemInfoSync();
       this.setModel(model, windowWidth / 2, windowHeight / 2);
 
       wx.hideLoading();

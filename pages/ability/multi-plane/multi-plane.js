@@ -72,11 +72,6 @@ Page({
     const anchor = anchors[0];
     console.warn("平面id：", anchor.id);
 
-    /**
-     * @todo
-     * 表面上：onload内调用一次api，这里重复取值就行了。
-     * 实际上：getSystemInfoSync这个api在这里调用拿到的宽高为undefined...
-    */
     const { windowWidth, windowHeight } = this;
     // 在指定id的平面上放置模型
     const success = this.slam.standOnThePlaneById(

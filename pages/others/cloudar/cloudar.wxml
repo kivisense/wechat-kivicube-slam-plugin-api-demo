@@ -3,7 +3,6 @@
   license="{{license}}"
   bindready="ready"
   binderror="error"
-  bind:tap="tap"
 />
 <view class="image-guide" wx:if="{{showGuide}}">
   <image mode="widthFix" src="./image.jpg"></image>

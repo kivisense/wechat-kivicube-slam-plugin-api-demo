@@ -44,7 +44,7 @@ Page({
           // 去掉指示器
           slam.removePlaneIndicator();
 
-          const { windowHeight, windowWidth } = wx.getWindowInfo();
+          const { windowHeight, windowWidth } = wx.getSystemInfoSync();
           // 显示模型 并放置
           rabbitModel.visible = true;
           slam.standOnThePlane(
