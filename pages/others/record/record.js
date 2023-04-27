@@ -76,11 +76,13 @@ Page({
     
     this.enableOnBeforeRender();
     console.log("--- start ---");
+    // 录制完成后，拿到视频的本地路径
     const localPath = await this.recorder.start();
     console.log("--- end ---");
 
     this.setData({ startDisable: false, stopDisable: false });
 
+    // 保存视频到系统相册
     wx.saveVideoToPhotosAlbum({
       filePath: localPath,
     });
@@ -127,7 +129,7 @@ Page({
     });
 
     this.recorder.on("end", (path) => {
-      console.log("recorder log:  end", path);
+      console.log("recorder log:  end 录制结束；本地路径：", path);
     });
 
     this.recorder.on("error", (error) => {
