@@ -36,11 +36,14 @@ Page({
       wx.hideLoading();
       this.setData({ showGuide: true });
 
-      const { windowHeight, windowWidth } = wx.getWindowInfo();
+      const { windowHeight, windowWidth } = wx.getSystemInfoSync();
 
       // 开启一个计时器，超过10秒未识别到，关闭云识别，直接显示模型
       const timer = setTimeout(() => {
-        this.slam.stopCloudar();
+        // 关闭云识别
+        slam.stopCloudar();
+        // 设置模型可用手势操作
+        slam.setGesture(rabbitModel);
         this.setData({ showGuide: false });
         this.setModel(windowWidth / 2, windowHeight / 2);
       }, 10000);
@@ -63,6 +66,8 @@ Page({
         clearTimeout(timer);
         this.setData({ showGuide: false });
         this.setModel(windowWidth / 2, windowHeight / 2);
+        // 设置模型可用手势操作
+        slam.setGesture(rabbitModel);
       }
     } catch (e) {
       wx.hideLoading();
@@ -76,17 +81,6 @@ Page({
       showAuthModal(this);
     } else {
       errorHandler(detail);
-    }
-  },
-
-  tap({ touches, target }) {
-    if (Array.isArray(touches) && touches.length > 0) {
-      const { offsetLeft, offsetTop } = target;
-      const { pageX, pageY } = touches[0];
-      // 注意：需要传入在kivicube-slam组件上的坐标点，而不是页面上的坐标点。
-      const x = pageX - offsetLeft;
-      const y = pageY - offsetTop;
-      this.setModel(x, y);
     }
   },
 
