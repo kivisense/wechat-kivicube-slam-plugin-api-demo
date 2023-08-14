@@ -3,3 +3,12 @@
   width: 100vw;
   height: 100vh;
 }
+
+.operate {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  z-index: 2;
+}

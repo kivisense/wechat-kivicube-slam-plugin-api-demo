@@ -10,6 +10,8 @@ function updateMatrix(object, { transform }) {
 Page({
   data: {
     license: getApp().globalData.license,
+    vertical: 45,
+		horizontal: 45,
   },
 
   onLoad() {
@@ -29,10 +31,28 @@ Page({
       const model3d = await slam.createGltfModel(modelArrayBuffer);
       const intensity = 0.15;
 
+      model3d.position.z = -1.5;
       slam.add(model3d, 0.5);
+
+      this.model3d = model3d;
 
       // 开启slam平面追踪
       await slam.start();
+
+      // 设置阴影的分辨率, 注意：分辨率越高性能消耗越大，另外请设置分辨率为2的幂次方
+      slam.defaultDirectionalLight.shadow.mapSize.width = 1024;
+      slam.defaultDirectionalLight.shadow.mapSize.height = 1024;
+
+      if (slam.isSlamV2()) {
+        slam.defaultDirectionalLight.shadow.mapSize.width = 2048;
+        slam.defaultDirectionalLight.shadow.mapSize.height = 2048;
+        // v2模式下缩小平行光的覆盖范围，产生阴影的区域对应减小, 阴影贴图覆盖在更小的区域上, 阴影效果更好(可以理解为单位面积的阴影贴图分辨率更高)
+        // 默认值为5 这里把范围改小些
+        slam.defaultDirectionalLight.shadow.camera.left = -2;
+        slam.defaultDirectionalLight.shadow.camera.right = 2;
+        slam.defaultDirectionalLight.shadow.camera.top = 2;
+        slam.defaultDirectionalLight.shadow.camera.bottom = -2;
+      }
 
       /**
        * v2模式下, 3d对象站立在新的平面上后, 需要在新的平面上新建对应的阴影片
@@ -64,10 +84,6 @@ Page({
 
       // ================== 以下代码仅供插件版本 >= 1.3.19 使用 ==========================
       if (result) {
-        // 设置阴影的分辨率, 注意：分辨率越高性能消耗越大，另外请设置分辨率为2的幂次方
-        slam.defaultDirectionalLight.shadow.mapSize.width = 1024;
-        slam.defaultDirectionalLight.shadow.mapSize.height = 1024;
-
         if (slam.isGyroscope()) {
           // 陀螺仪模式建议用这个方式创建阴影
           slam.enableShadow(intensity);
@@ -99,6 +115,7 @@ Page({
        * @param {Boolean} [recursive=true] - 是否递归设置所有子对象。默认为true。模型对象建议为true，否则阴影会不完整。
        */
       model3d.setCastShadow(true);
+      this.setDirectionalLightAngle();
 
       wx.hideLoading();
 
@@ -145,7 +162,11 @@ Page({
      * 阴影面片默认是紧贴在模型放置的平面上，为了避免面片与模型极度紧贴可能导致的显示异常
      * 这里需要把阴影面片的y轴位置向下调整，这里的数值仅作参考
      */
-    shadowPlane.position.y -= 0.05;
+    if (slam.isSlamV2()) {
+      shadowPlane.position.y -= 0.003;
+    } else {
+      shadowPlane.position.y -= 0.05;
+    }
 
     this.shadowPlanes[plane.id] = shadowPlane;
     slam.add(shadowPlane);
@@ -167,5 +188,45 @@ Page({
       errorHandler(detail);
     }
   },
+
+  horizontalChange({ detail }) {
+    const horizontal = +detail.value;
+    this.setData({ horizontal }, () => {
+			this.setDirectionalLightAngle();
+		});
+  },
+  
+  verticalChange({ detail }) {
+    const vertical = +detail.value;
+    this.setData({ vertical }, () => {
+			this.setDirectionalLightAngle();
+		});
+	},
+	
+	setDirectionalLightAngle() {
+    const directionalLight = this.slam.defaultDirectionalLight;
+    const directionalPosition = directionalLight.position.clone().set(0, 1, 0);
+		const axisX = directionalPosition.clone().set(1, 0, 0);
+    const	axisY = directionalPosition.clone();
+
+    console.log(axisX, axisY)
+    
+    const horizontalRadius = Math.PI / 180 * this.data.horizontal;
+    const verticalRadius = Math.PI / 180 * this.data.vertical;
+
+    directionalPosition.applyAxisAngle(
+			axisX,
+      verticalRadius,
+    );
+
+    directionalPosition.applyAxisAngle(
+      axisY,
+      horizontalRadius
+    );
+
+    const position = directionalPosition.clone();
+    directionalLight.position.copy(position);
+    directionalLight.target.position.copy(this.model3d.position);
+	},
 
 });
