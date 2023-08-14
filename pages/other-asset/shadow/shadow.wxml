@@ -6,3 +6,15 @@
   bindready="ready"
   binderror="error"
 />
+
+<view class="operate">
+	<label>
+		选择平行光水平朝向：{{horizontal}}
+		<slider value="{{horizontal}}" bindchange="horizontalChange" min="-180" max="180" step="1" />
+	</label>
+
+	<label style="display:block;margin-bottom: 20vw;">
+		选择平行光垂直朝向：{{vertical}}
+		<slider value="{{vertical}}" bindchange="verticalChange" min="-90" max="90" step="1" />
+	</label>
+</view>
