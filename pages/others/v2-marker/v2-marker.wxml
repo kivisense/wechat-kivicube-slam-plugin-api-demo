@@ -11,6 +11,6 @@
 />
 
 <view class="image-guide" wx:if="{{showGuide}}">
-  <image mode="widthFix" src="../cloudar/image.jpg"></image>
+  <image mode="widthFix" src="{{markerImageUrl}}"></image>
   <view>请对准识别图</view>
 </view>

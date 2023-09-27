@@ -80,7 +80,7 @@
 
 #### 12、[AR内容录制](../../tree/master/pages/others/record/)
 
-#### 13、[水平面AR-v2-marker识别](../../tree/master/pages/others/v2-marker/)
+#### 13、[基于图像定位的世界AR(图像AR+VIO)](../../tree/master/pages/others/v2-marker/)
 
 #### 14、[水平面AR-v2-虚实遮挡](../../tree/master/pages/others/v2-depth/)
 
