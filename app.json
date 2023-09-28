@@ -23,6 +23,8 @@
     "pages/other-asset/camera/camera",
     "pages/ability/multi-plane/multi-plane",
     "pages/ability/vio-scene/vio-scene",
+    "pages/ability/v2-marker/v2-marker",
+		"pages/ability/v2-depth/v2-depth",
     "pages/others/photo/photo",
     "pages/others/cloudar/cloudar",
     "pages/others/penetrate-ui/penetrate-ui",
@@ -34,9 +36,7 @@
     "pages/others/stand-check/stand-check",
     "pages/others/auto-stand-v2/auto-stand-v2",
     "pages/others/face-camera/face-camera",
-		"pages/others/record/record",
-		"pages/others/v2-marker/v2-marker",
-		"pages/others/v2-depth/v2-depth"
+		"pages/others/record/record"
 	],
 	"plugins": {
 		"kivicube-slam": {
