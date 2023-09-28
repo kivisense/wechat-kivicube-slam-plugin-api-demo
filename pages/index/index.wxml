@@ -33,6 +33,8 @@
 <view class="second">
   <navigator url="../ability/multi-plane/multi-plane">1、多平面检测与事件监听 (v2版本) </navigator>
   <navigator url="../ability/vio-scene/vio-scene">2、VIO(6DOF)追踪(v2版本) </navigator>
+  <navigator url="../ability/v2-marker/v2-marker">3、基于图像定位的世界AR(图像AR+VIO)</navigator>
+  <navigator url="../ability/v2-depth/v2-depth">4、水平面AR-v2-虚实遮挡</navigator>
 </view>
 
 <view class="title">五、其他</view>
@@ -49,6 +51,4 @@
   <navigator url="../others/auto-stand-v2/auto-stand-v2">10、v2立即放置到可用平面</navigator>
   <navigator url="../others/face-camera/face-camera">11、让模型朝向相机方位</navigator>
   <navigator url="../others/record/record">12、AR内容录制</navigator>
-  <navigator url="../others/v2-marker/v2-marker">13、基于图像定位的世界AR(图像AR+VIO)</navigator>
-  <navigator url="../others/v2-depth/v2-depth">14、水平面AR-v2-虚实遮挡</navigator>
 </view>
