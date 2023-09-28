@@ -1,0 +1,16 @@
+<kivicube-slam
+  class="slam"
+  license="{{license}}"
+  version="{{version}}"
+	marker="{{marker}}"
+  bindready="ready"
+  binderror="error"
+	bind:tracked="tracked"
+  bind:tracking="tracking"
+  bind:lostTrack="lostTrack"
+/>
+
+<view class="image-guide" wx:if="{{showGuide}}">
+  <image mode="widthFix" src="{{markerImageUrl}}"></image>
+  <view>请对准识别图</view>
+</view>

@@ -80,6 +80,10 @@
 
 #### 12、[AR内容录制](../../tree/master/pages/others/record/)
 
+#### 13、[基于图像定位的世界AR(图像AR+VIO)](../../tree/master/pages/others/v2-marker/)
+
+#### 14、[水平面AR-v2-虚实遮挡](../../tree/master/pages/others/v2-depth/)
+
 ## 快速体验
 
 1. 使用git克隆此仓库至本地，可使用命令`git clone git@github.com:kivisense/wechat-kivicube-slam-plugin-api-demo.git`，或者点击右上角按钮Code -> Download ZIP下载代码。

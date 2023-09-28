@@ -34,12 +34,14 @@
     "pages/others/stand-check/stand-check",
     "pages/others/auto-stand-v2/auto-stand-v2",
     "pages/others/face-camera/face-camera",
-    "pages/others/record/record"
-  ],
-  "plugins": {
-    "kivicube-slam": {
-      "provider": "wx12ad8a61f049ea02",
-      "version": "1.4.3"
+		"pages/others/record/record",
+		"pages/others/v2-marker/v2-marker",
+		"pages/others/v2-depth/v2-depth"
+	],
+	"plugins": {
+		"kivicube-slam": {
+			"provider": "wx12ad8a61f049ea02",
+      "version": "1.5.3"
     }
   },
   "window": {
