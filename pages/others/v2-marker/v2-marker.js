@@ -73,6 +73,9 @@ Page({
       group.add(imageModel);
 
       rabbitModel.playAnimation({ loop: true });
+      rabbitModel.scale.setScalar(2);
+      rabbitModel.position.y = -0.5;
+      rabbitModel.position.z = 0.3;
 
       // 先隐藏模型
       group.visible = false;
