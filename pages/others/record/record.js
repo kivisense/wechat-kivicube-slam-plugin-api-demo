@@ -1,5 +1,14 @@
 import { requestFile } from "../../../utils/utils";
 
+function isHuaWei() {
+  const systemInfo = wx.getSystemInfoSync();
+  const brand = systemInfo.brand.toLocaleLowerCase();
+  if (brand.includes("honor") || brand.includes("huawei")) {
+    return true;
+  }
+  return false;
+}
+
 Page({
   data: {
     license: getApp().globalData.license,
@@ -68,6 +77,14 @@ Page({
   },
 
   async startRecord() {
+    if (isHuaWei()) {
+      wx.showToast({
+        title: "注意：华为手机录制可能存在黑屏等未知问题",
+        icon: "none",
+        duration: 3500,
+      });
+    }
+
     this.setData({ startDisable: true });
 
     if (!this.recorder) {
@@ -92,6 +109,8 @@ Page({
    * 初始化AR录制器
    * AR内容录制功能开通请参考：
    * https://www.yuque.com/kivicube/slam/slam-develop#pUA07
+   * 
+   * 注意：华为手机的录制存在黑屏等未知问题，我们正在处理中，开发者需要自行处理兼容问题
    * **/
   initRecorder() {
     try {
