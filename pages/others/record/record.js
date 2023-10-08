@@ -9,6 +9,14 @@ function isHuaWei() {
   return false;
 }
 
+/**
+ * AR内容录制功能开通请参考：
+ * https://www.yuque.com/kivicube/slam/slam-develop#pUA07
+ * 
+ * 录制服务的用户文档：
+ * https://www.yuque.com/kivicube/manual/kivicube-features#AhcpJ
+ */
+
 Page({
   data: {
     license: getApp().globalData.license,
@@ -107,8 +115,6 @@ Page({
 
   /**
    * 初始化AR录制器
-   * AR内容录制功能开通请参考：
-   * https://www.yuque.com/kivicube/slam/slam-develop#pUA07
    * 
    * 注意：华为手机的录制存在黑屏等未知问题，我们正在处理中，开发者需要自行处理兼容问题
    * **/
