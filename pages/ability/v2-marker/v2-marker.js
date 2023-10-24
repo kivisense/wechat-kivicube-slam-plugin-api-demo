@@ -37,6 +37,7 @@ Page({
     license: getApp().globalData.license,
     showGuide: false,
     markerImageUrl: "https://meta.kivisense.com/kivicube-slam-mp-plugin/demo-assets/image/wonder.jpg",
+    markerImageUrl2: "https://project.kivisense.com/tmp-assets/image2d-ar/kivicube.jpg",
   },
 
   onLoad() {
@@ -47,19 +48,21 @@ Page({
 
     console.warn(`marker支持：${marker}`);
     
+    const { markerImageUrl, markerImageUrl2 } = this.data;
 
     this.downloadAsset = Promise.all([
       requestFile(
         "https://meta.kivisense.com/kivicube-slam-mp-plugin/demo-assets/model/rabbit.glb"
       ),
-      requestFile(this.data.markerImageUrl),
-      downloadMarker(this.data.markerImageUrl),
+      requestFile(markerImageUrl),
+      downloadMarker(markerImageUrl),
+      downloadMarker(markerImageUrl2),
     ]);
   },
 
   async ready({ detail: slam }) {
     try {
-      const [rabbitArrayBuffer, imageAb, markerPath] = await this.downloadAsset;
+      const [rabbitArrayBuffer, imageAb, markerPath, markerPath2] = await this.downloadAsset;
 
       const [rabbitModel, imageModel] = await Promise.all([
         slam.createGltfModel(rabbitArrayBuffer),
@@ -97,7 +100,9 @@ Page({
        * @params markerPath {String|Array<String>} - 识别图本地路径。注意：只支持在wx.env.USER_DATA_PATH文件夹中的识别图。
        * @returns {Promsie<Number|Array<Number>>} 识别图Id
        */
-      await markerAr.setMarker(markerPath);
+      const markerIds = await markerAr.setMarker([markerPath, markerPath2]);
+
+      console.warn("setMarker 返回的识别图ID：", markerIds);
 
       wx.hideLoading();
 
@@ -121,32 +126,40 @@ Page({
   tracked({ detail: markerId }) {
     this.setData({ showGuide: false });
 
+    if (this._isTracked) {
+      console.warn("tracked again", markerId);
+    };
+
+    console.log(`识别成功，markerId：${markerId}`);
+    console.log("isTracked", markerAr.isTracked());
+
     const { markerModel: model, slam } = this;
 
     const markerAr = slam.getMarkerAR();
-
-    console.log(`新增 markerId：${markerId}`);
-    console.log("isTracked", markerAr.isTracked());
     
-    // 追踪到了，显示模型
-    model.visible = true;
+    if (!this._isTracked) {
+      // 首次追踪到了，显示模型
+      model.visible = true;
 
-    // 如果不旋转，模型对象将 “站立” 在识别图上，根据需求决定是否需要旋转
-    model.rotation.x = -Math.PI / 2;
+      // 如果不旋转，模型对象将 “站立” 在识别图上，根据需求决定是否需要旋转
+      model.rotation.x = -Math.PI / 2;
 
-    // 获取包围盒大小
-    const modelSize = model.getSize();
+      // 获取包围盒大小
+      const modelSize = model.getSize();
 
-    // 设置一个放大基数，为1就表示与识别图在真实空间的宽度大概保持一致
-    const multipleSize = 1;
+      // 设置一个放大基数，为1就表示与识别图在真实空间的宽度大概保持一致
+      const multipleSize = 1;
 
-    model.scale.setScalar(multipleSize / modelSize.x);
+      model.scale.setScalar(multipleSize / modelSize.x);
+
+      this._isTracked = true;
+    }
 
     // 如果只用作首次定位，用完后可移除marker
     // markerAr.removeMarker(markerId);
   },
 
-  // tracking只有识别图持续出现在相机画面内才会执行，并且执行频率不高
+  // tracking只有识别图持续出现在相机画面内才会执行
   tracking({ detail: markerId }) {
     console.log(`tracking markerId：${markerId}`);
   },
