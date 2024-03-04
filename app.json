@@ -36,7 +36,8 @@
     "pages/others/stand-check/stand-check",
     "pages/others/auto-stand-v2/auto-stand-v2",
     "pages/others/face-camera/face-camera",
-		"pages/others/record/record"
+    "pages/others/record/record",
+    "pages/others/stand-ahead/stand-ahead"
 	],
 	"plugins": {
 		"kivicube-slam": {

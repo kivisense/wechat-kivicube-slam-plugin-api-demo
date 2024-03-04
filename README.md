@@ -84,6 +84,8 @@
 
 #### 12、[AR内容录制](../../tree/master/pages/others/record/)
 
+#### 13、[放置模型到相机正前方](../../tree/master/pages/others/stand-ahead/)
+
 ## 快速体验
 
 1. 使用git克隆此仓库至本地，可使用命令`git clone git@github.com:kivisense/wechat-kivicube-slam-plugin-api-demo.git`，或者点击右上角按钮Code -> Download ZIP下载代码。
