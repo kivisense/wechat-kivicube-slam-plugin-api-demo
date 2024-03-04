@@ -53,7 +53,7 @@ Page({
   },
 
   standAheadCamera() {
-    if (!this.slam) return;
+    if (!this.slam || !this.model3d) return;
 
     const camera = this.slam.defaultCamera;
     // 获取相机正视的世界空间方向的向量
@@ -76,7 +76,6 @@ Page({
       .easing(TWEEN.Easing.Linear.None)
       .onUpdate(({ x, y, z }) => {
         this.model3d.position.set(x, y, z);
-        console.warn("onUpdate", x, y, z);
       })
       .start();
 
