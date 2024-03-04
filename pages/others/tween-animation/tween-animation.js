@@ -1,4 +1,4 @@
-import TWEEN from "./tween.umd";
+import TWEEN from "../../../utils/tween.umd";
 import { errorHandler, showAuthModal, requestFile } from "../../../utils/utils";
 
 Page({

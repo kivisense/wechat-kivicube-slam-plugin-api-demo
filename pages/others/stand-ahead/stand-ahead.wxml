@@ -1,0 +1,8 @@
+<kivicube-slam
+  class="slam"
+  version="{{version}}"
+  downgrade="{{true}}"
+  bindready="ready"
+  binderror="error"
+  bind:tap="slamTap"
+/>
