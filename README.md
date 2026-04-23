@@ -1,3 +1,5 @@
+# kivicube-slam插件已不再维护，推荐使用[kivicube插件](https://mp.weixin.qq.com/wxopen/plugindevdoc?appid=wx3bbab3920eabccb2)
+
 # Kivicube Slam插件高级API使用说明文档
 
 ## 源码目录
